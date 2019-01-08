@@ -1,7 +1,7 @@
 {
-  "name": "boilermaker",
+  "name": "RadioStack",
   "version": "1.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "Fullstack e-Commerce Web Application from Team Allstar",
   "engines": {
     "node": ">= 7.0.0"
   },
@@ -34,7 +34,7 @@
       "git add"
     ]
   },
-  "author": "Fullstack Academy of Code",
+  "author": "Team Allstar",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.15.3",
