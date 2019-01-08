@@ -1,5 +1,6 @@
 const router = require('express').Router()
-const {Category, Product} = require('../db/models')
+const Category = require('../db/models/category')
+const Product = require('../db/models/product')
 module.exports = router
 
 router.get('/:categoryId', async (req, res, next) => {
