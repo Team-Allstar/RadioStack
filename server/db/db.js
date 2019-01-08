@@ -16,3 +16,5 @@ module.exports = db
 if (process.env.NODE_ENV === 'test') {
   after('close database connection', () => db.close())
 }
+
+db.sync({force: false}) // REMEMBER TO CHANGE BACK TO TRUE IF RE-SYNCING DATABASE
