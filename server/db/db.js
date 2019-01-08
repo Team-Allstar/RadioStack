@@ -17,4 +17,4 @@ if (process.env.NODE_ENV === 'test') {
   after('close database connection', () => db.close())
 }
 
-db.sync({force: false}) // REMEBER TO CHANGE BACK TO TRUE IF RE-SYNCING DATABASE
+db.sync({force: false}) // REMEMBER TO CHANGE BACK TO TRUE IF RE-SYNCING DATABASE
