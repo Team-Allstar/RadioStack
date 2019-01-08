@@ -4,7 +4,7 @@ module.exports = router
 
 router.get('/:productId', async (req, res, next) => {
   try {
-    const productId = req.paramus.productId
+    const productId = req.params.productId
     const singleProduct = await Product.findById(productId)
     res.json(singleProduct)
   } catch (error) {
