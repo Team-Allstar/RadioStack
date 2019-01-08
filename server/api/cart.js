@@ -6,11 +6,11 @@ router.get('/', async (req, res, next) => {
   try {
     let cart = await Order.findOrCreate({
       where: {
-        userId: req.body.Id || req.session.Id,
+        userId: req.user.id || req.session.id,
         isCart: true
       }
     })
-    res.json(cart)
+    res.status(200).res.json(cart)
   } catch (error) {
     next(error)
   }
