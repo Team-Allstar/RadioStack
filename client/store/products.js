@@ -21,7 +21,7 @@ const getAllProducts = () => ({type: GET_PRODUCTS, allProducts})
 /**
  * THUNK CREATORS
  */
-export const getAllProducts = () => async dispatch => {
+export const fetchAllProducts = () => async dispatch => {
   try {
     const res = await axios.get('/api/products')
     dispatch(getAllProducts(res.data))

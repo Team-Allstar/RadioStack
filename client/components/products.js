@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Axios from 'axios'
 import {connect} from 'react-redux'
-import {getAllProducts} from '../store/user'
+import {fetchAllProducts} from '../store/user'
 
 class Products extends Component {
   constructor(props) {
