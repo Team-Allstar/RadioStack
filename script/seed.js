@@ -85,23 +85,23 @@ const seed = async () => {
     //imageUrl:
   }
 
-  // const orders = [
-  //   {
-  //     isCart: true
-  //   }
-  // ]
+  const orders = [
+    {
+      isCart: true
+    }
+  ]
 
-  // const orderedProducts = [
-  //   {
-  //     quantity: 10,
-  //     pricePaid: 59.99
-  //   },
-  //   {
-  //     quantity: 12,
-  //     pricePaid: 59.99
-  //   }
-  // ]
-
+  const orderedProducts = [
+    {
+      quantity: 10,
+      pricePaid: 59.99
+    },
+    {
+      quantity: 12,
+      pricePaid: 59.99
+    }
+  ]
+  
   await User.create(user1)
   await User.create(user2)
   await User.create(user3)
@@ -111,6 +111,9 @@ const seed = async () => {
 
   await Product.create(product1)
   await Product.create(product2)
+  
+  await Order.create(orders)
+  await OrderedProducts.create(orderedProducts)
 
   console.log('Seeding success!')
   db.close()
