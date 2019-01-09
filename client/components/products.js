@@ -1,36 +1,42 @@
 import React, {Component} from 'react'
-import Axios from 'axios'
 import {connect} from 'react-redux'
-import {fetchAllProducts} from '../store/user'
+import {fetchAllProducts} from '../store/products'
 
 class Products extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
-      allProducts: []
+      // allProducts: []
     }
   }
 
   async componentDidMount() {
-    const response = await Axios.get('/api/products')
-    console.log('my data', response.data)
-    const allProducts = response.data
-    this.setState((this.state.allProducts = allProducts))
+    await this.props.fetchAllProducts()
   }
 
   render() {
+    console.log('LOG', this.props.allProducts)
     return (
       <div id="products">
-        {this.state.allProducts.map(el => (
-          <div key={el.id}>{el.productName}</div>
-        ))}
+        {this.props.allProducts
+          ? this.props.allProducts.map(el => (
+              <div key={el.id}>{el.productName}</div>
+            ))
+          : 'Loading'}
       </div>
     )
   }
 }
 
-const matchStateToProps = state => ({})
+const mapState = state => {
+  return {allProducts: state.products}
+}
 
-const matchDispatchToProps = dispatch => ({})
+const mapDispatch = dispatch => ({
+  fetchAllProducts: () => {
+    dispatch(fetchAllProducts())
+  }
+})
 
-export default connect(matchStateToProps, matchDispatchToProps)(Products)
+export default connect(mapState, mapDispatch)(Products)

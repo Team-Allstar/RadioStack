@@ -4,40 +4,44 @@ import history from '../history'
 /**
  * ACTION TYPES
  */
-const GET_PRODUCTS = 'GET_PRODUCTS'
+const GOT_PRODUCTS = 'GOT_PRODUCTS'
 
 /**
  * INITIAL STATE
  */
-const initialState = {
-  allProducts: []
-}
+// const initialState = {
+//   allProducts: []
+// }
 
 /**
  * ACTION CREATORS
  */
-const getAllProducts = () => ({type: GET_PRODUCTS, allProducts})
+const gotAllProducts = allProducts => {
+  return {type: GOT_PRODUCTS, allProducts}
+}
 
 /**
  * THUNK CREATORS
  */
-export const fetchAllProducts = () => async dispatch => {
-  try {
-    const res = await axios.get('/api/products')
-    dispatch(getAllProducts(res.data))
-  } catch (err) {
-    console.error(err)
+export const fetchAllProducts = () => {
+  return async dispatch => {
+    try {
+      const {data} = await axios.get('/api/products')
+      dispatch(gotAllProducts(data))
+    } catch (err) {
+      console.error(err)
+    }
   }
 }
 
 /**
  * REDUCER
  */
-export default function(state = initialState, action) {
+export default function(products = [], action) {
   switch (action.type) {
-    case GET_PRODUCTS:
-      return {...state, allProducts: [...action.allProducts]}
+    case GOT_PRODUCTS:
+      return [...action.allProducts]
     default:
-      return state
+      return products
   }
 }
