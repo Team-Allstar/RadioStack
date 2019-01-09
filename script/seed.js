@@ -73,35 +73,69 @@ const seed = async () => {
     productDescription: 'A monitor',
     productInventory: 100,
     currentPrice: 139.99,
-    featured: false
+    featured: false,
     //imageUrl:
+    CategoryId: 1
   }
   const product2 = {
     productName: 'DJI',
     productDescription: 'A drone',
     productInventory: 70,
     currentPrice: 1499.99,
-    featured: true
+    featured: true,
     //imageUrl:
+    CategoryId: 1
   }
 
-  const orders = [
-    {
-      isCart: true
-    }
-  ]
+  const orders1 = {
+    isCart: true,
+    UserId: 1
+  }
+  const orders2 = {
+    isCart: true,
+    UserId: 2
+  }
+  const orders3 = {
+    isCart: false,
+    UserId: 3
+  }
 
-  const orderedProducts = [
-    {
-      quantity: 10,
-      pricePaid: 59.99
-    },
-    {
-      quantity: 12,
-      pricePaid: 59.99
-    }
-  ]
-  
+  const orderedProducts1 = {
+    quantity: 10,
+    pricePaid: 139.99,
+    ProductId: 1,
+    UserId: 1,
+    OrderId: 1
+  }
+  const orderedProducts2 = {
+    quantity: 1,
+    pricePaid: 1499.99,
+    ProductId: 2,
+    UserId: 1,
+    OrderId: 1
+  }
+  const orderedProducts3 = {
+    quantity: 1,
+    pricePaid: 139.99,
+    ProductId: 1,
+    UserId: 2,
+    OrderId: 2
+  }
+  const orderedProducts4 = {
+    quantity: 1,
+    pricePaid: 139.99,
+    ProductId: 1,
+    UserId: 3,
+    OrderId: 3
+  }
+  const orderedProducts5 = {
+    quantity: 1,
+    pricePaid: 1499.99,
+    ProductId: 2,
+    UserId: 3,
+    OrderId: 3
+  }
+
   await User.create(user1)
   await User.create(user2)
   await User.create(user3)
@@ -111,9 +145,16 @@ const seed = async () => {
 
   await Product.create(product1)
   await Product.create(product2)
-  
-  await Order.create(orders)
-  await OrderedProducts.create(orderedProducts)
+
+  await Order.create(orders1)
+  await Order.create(orders2)
+  await Order.create(orders3)
+
+  await OrderedProducts.create(orderedProducts1)
+  await OrderedProducts.create(orderedProducts2)
+  await OrderedProducts.create(orderedProducts3)
+  await OrderedProducts.create(orderedProducts4)
+  await OrderedProducts.create(orderedProducts5)
 
   console.log('Seeding success!')
   db.close()
