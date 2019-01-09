@@ -19,8 +19,16 @@ const Product = db.define('Product', {
     defaultValue: 0
   },
   currentPrice: {
-    type: Sequelize.DECIMAL(9, 6),
+    type: Sequelize.DECIMAL(9, 3),
     defaultValue: 0
+  },
+  featured: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  },
+  imageUrl: {
+    type: Sequelize.STRING,
+    defaultValue: '/images/products/default-product.jpg'
   }
 })
 
