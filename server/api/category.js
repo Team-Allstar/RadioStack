@@ -22,6 +22,7 @@ router.get('/:categoryId', async (req, res, next) => {
     })
     res.json(category)
   } catch (error) {
+    res.status(404)
     next(error)
   }
 })
