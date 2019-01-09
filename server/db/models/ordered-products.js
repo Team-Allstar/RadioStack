@@ -9,7 +9,7 @@ const OrderedProduct = db.define('Ordered-Product', {
     validate: {min: 1}
   },
   pricePaid: {
-    type: Sequelize.DECIMAL(9, 6),
+    type: Sequelize.DECIMAL(9, 3),
     defaultValue: null
   }
 })
