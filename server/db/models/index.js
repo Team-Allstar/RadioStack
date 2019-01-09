@@ -17,6 +17,8 @@ User.hasMany(Order)
 Product.belongsTo(Category)
 
 Product.hasMany(OrderedProduct)
+OrderedProduct.belongsTo(Product)
+
 User.hasMany(OrderedProduct)
 Order.hasMany(OrderedProduct)
 
