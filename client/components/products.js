@@ -4,17 +4,9 @@ import {Link} from 'react-router-dom'
 import {fetchAllProducts} from '../store/products'
 
 class Products extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      // allProducts: []
-    }
-  }
 
   async componentDidMount() {
     await this.props.fetchAllProducts()
-    console.log('LOGGG', this.props)
   }
 
   render() {
