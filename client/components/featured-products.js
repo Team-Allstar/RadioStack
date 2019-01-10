@@ -4,13 +4,6 @@ import {Link} from 'react-router-dom'
 import {fetchFeaturedProducts} from '../store/products'
 
 class FeaturedProducts extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      // allProducts: []
-    }
-  }
 
   async componentDidMount() {
     await this.props.fetchFeaturedProducts()
