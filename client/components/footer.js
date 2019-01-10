@@ -8,7 +8,7 @@ const Footer = ({handleClick, isLoggedIn}) => (
   <div id="footer">
     <p>
       &copy; 2019{' '}
-      <Link className="footer-link" to="/home">
+      <Link className="footer-link" to="/">
         RadioStack
       </Link>
     </p>

@@ -10,9 +10,10 @@ class SingleProduct extends Component {
   }
   render() {
     return (
-      <div>
+      <div id="single-product">
         <ul>
-          <img src={this.props.singleProduct.imageUrl} />
+          <img src={this.props.singleProduct.imageUrl} width="100px" />
+          <h1>Product Details:</h1>
           <li>PRODUCT NAME : {this.props.singleProduct.productName}</li>
           <li>PRODUCT INFO : {this.props.singleProduct.productDescription}</li>
           <li>OUR STOCK : {this.props.singleProduct.productInventory}</li>
