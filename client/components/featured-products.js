@@ -23,7 +23,7 @@ class FeaturedProducts extends Component {
                           <img src={el.imageUrl} width="100px" />
                         </td>
                         <td>{el.productName}</td>
-                        <td>{el.productDescription}</td>
+                        {/* <td>{el.productDescription}</td> */}
                         <td>{el.currentPrice}</td>
                       </tr>
                     </Link>
