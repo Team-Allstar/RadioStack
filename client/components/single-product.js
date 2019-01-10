@@ -1,13 +1,45 @@
-import React from 'react'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {withRouter, Link} from 'react-router-dom'
+import {fetchSingleProduct} from '../store/singleProduct'
 
-const SingleProduct = ({handleClick, isLoggedIn}) => (
-  <div id="single-product">
-    <p>SingleProduct</p>
-  </div>
-)
+class SingleProduct extends Component {
+  componentDidMount() {
+    const productId = Number(this.props.match.params.id)
+    this.props.fetchMyProduct(productId)
+  }
+  render() {
+    return (
+      <div>
+        <ul>
+          <img src={this.props.singleProduct.imageUrl} />
+          <li>PRODUCT NAME : {this.props.singleProduct.productName}</li>
+          <li>PRODUCT INFO : {this.props.singleProduct.productDescription}</li>
+          <li>OUR STOCK : {this.props.singleProduct.productInventory}</li>
+          <li>CURRENT PRICE :{this.props.singleProduct.currentPrice}</li>
+        </ul>
+      </div>
+    )
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    singleProduct: state.singleProduct
+  }
+}
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchMyProduct: id => {
+      dispatch(fetchSingleProduct(id))
+    }
+  }
+}
 
 /**
  * CONTAINER
  */
 
-export default SingleProduct
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(SingleProduct)
+)
