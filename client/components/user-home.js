@@ -2,9 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 
-/**
- * COMPONENT
- */
+// presentational component
 export const UserHome = props => {
   const {email} = props
 
@@ -15,20 +13,16 @@ export const UserHome = props => {
   )
 }
 
-/**
- * CONTAINER
- */
+// container
 const mapState = state => {
   return {
-    email: state.user.email
+    user: state.defaultUser
   }
 }
 
 export default connect(mapState)(UserHome)
 
-/**
- * PROP TYPES
- */
+// prop types
 UserHome.propTypes = {
   email: PropTypes.string
 }
