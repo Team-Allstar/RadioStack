@@ -34,11 +34,11 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         <Route path="/cart" component={Cart} />
         <Route path="/categories" component={Categories} />
-        <Route path="/featured-products" component={FeaturedProducts} />
+        <Route exact path="/products/featured" component={FeaturedProducts} />
         <Route exact path="/products" component={Products} />
         <Route path="/products/:id" component={SingleProduct} />
         <Route path="/order-history" component={OrderHistory} />
-        <Route path="/home" component={Home} />
+        <Route path="/" component={Home} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
@@ -51,7 +51,7 @@ class Routes extends Component {
   }
 }
 
-/**
+/*git b
  * CONTAINER
  */
 const mapState = state => {

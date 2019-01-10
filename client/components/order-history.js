@@ -13,18 +13,27 @@ import {fetchOrderHistory} from '../store/order-history'
 
 class OrderHistory extends Component {
   async componentDidMount() {
-    await this.props.fetchOrderHistory()
+    await this.props.fetchOrderHistory(this.props.match.params.id)
   }
 
   render() {
-    return <div>Test</div>
+    console.log(this.props.match.params.id)
+    return (
+      <div id="order-history">
+        <h1>Test</h1>
+      </div>
+    )
   }
 }
 
+const mapStateToProps = state => ({
+  falseCart: state.falseCart
+})
+
 const mapDispatch = dispatch => ({
-  fetchOrderHistory: () => {
-    dispatch(fetchOrderHistory())
+  fetchOrderHistory: id => {
+    dispatch(fetchOrderHistory(id))
   }
 })
 
-export default connect(null, mapDispatch)(OrderHistory)
+export default connect(mapStateToProps, mapDispatch)(OrderHistory)

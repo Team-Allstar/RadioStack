@@ -6,7 +6,7 @@ import {logout} from '../store'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div id="navbar">
-    <Link to="/home">
+    <Link to="/">
       <img id="navbar-logo" src="/images/logos/RadioStack.png" />
     </Link>
     <nav>
@@ -14,13 +14,10 @@ const Navbar = ({handleClick, isLoggedIn}) => (
         <Link to="/categories">Categories</Link>
       </div>
       <div className="navLink">
-        <Link to="/featured-products">Featured Products</Link>
+        <Link to="/products/featured">Featured Products</Link>
       </div>
       <div className="navLink">
         <Link to="/products">Products</Link>
-      </div>
-      <div className="navLink">
-        <Link to="/single-product">Single Product</Link>
       </div>
       {isLoggedIn ? (
         <div className="navLink">
