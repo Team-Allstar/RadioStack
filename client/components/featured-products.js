@@ -1,15 +1,57 @@
-import React from 'react'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+import {fetchFeaturedProducts} from '../store/products'
 
-const FeaturedProducts = ({handleClick, isLoggedIn}) => {
-  return (
-    <div id="featured-products">
-      <p>FeaturedProducts</p>
-    </div>
-  )
+class FeaturedProducts extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      // allProducts: []
+    }
+  }
+
+  async componentDidMount() {
+    await this.props.fetchFeaturedProducts()
+  }
+
+  render() {
+    return (
+      <div id="products">
+        <table width="700px">
+          <tbody>
+            {this.props.allFeaturedProducts
+              ? this.props.allFeaturedProducts.map(el => (
+                  <div key={el.id} className="product-box">
+                    <Link to={`/products/${el.id}`}>
+                      <tr>
+                        <td>
+                          <img src={el.imageUrl} width="100px" />
+                        </td>
+                        <td>{el.productName}</td>
+                        <td>{el.productDescription}</td>
+                        <td>{el.currentPrice}</td>
+                      </tr>
+                    </Link>
+                  </div>
+                ))
+              : 'Loading'}
+          </tbody>
+        </table>
+      </div>
+    )
+  }
 }
 
-/**
- * CONTAINER
- */
+const mapState = state => ({
+  allFeaturedProducts: state.products.featuredProducts
+})
 
-export default FeaturedProducts
+const mapDispatch = dispatch => ({
+  fetchFeaturedProducts: () => {
+    dispatch(fetchFeaturedProducts())
+  }
+})
+
+export default connect(mapState, mapDispatch)(FeaturedProducts)

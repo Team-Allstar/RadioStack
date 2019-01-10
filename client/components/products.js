@@ -14,6 +14,7 @@ class Products extends Component {
 
   async componentDidMount() {
     await this.props.fetchAllProducts()
+    console.log('LOGGG', this.props)
   }
 
   render() {
@@ -44,9 +45,9 @@ class Products extends Component {
   }
 }
 
-const mapState = state => {
-  return {allProducts: state.products}
-}
+const mapState = state => ({
+  allProducts: state.products.allProducts
+})
 
 const mapDispatch = dispatch => ({
   fetchAllProducts: () => {
