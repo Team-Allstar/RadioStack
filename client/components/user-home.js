@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 
 // presentational component
 export const UserHome = props => {
-  const {email} = props
+  const {email, password} = props
 
   return (
     <div>
