@@ -20,6 +20,7 @@ class Products extends Component {
   render() {
     return (
       <div id="products">
+        <h1>All Products:</h1>
         <table width="700px">
           <tbody>
             {this.props.allProducts

@@ -14,12 +14,13 @@ class Categories extends Component {
   render() {
     console.log('I AM PROPS', this.props)
     return (
-      <div>
+      <div id="categories">
+        <h1>All Categories:</h1>
         {this.props.categories &&
           this.props.categories.map(category => {
             return (
               <div key={category.id}>
-                <img src={category.imageUrl} />
+                <img src={category.imageUrl} width="100px" />
                 <h3>
                   <Link to={`/category/${category.id}`}>
                     {category.categoryName}
