@@ -4,12 +4,14 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import products from './products'
+import orderHistorys from './order-history'
 import categories from './categories'
 import singleProduct from './singleProduct'
 
 const reducer = combineReducers({
   user: user,
   products: products,
+  orderHistorys: orderHistorys,
   singleProduct: singleProduct,
   categories: categories
 })
