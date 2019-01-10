@@ -35,9 +35,9 @@ class Routes extends Component {
         <Route path="/cart" component={Cart} />
         <Route path="/categories" component={Categories} />
         <Route path="/featured-products" component={FeaturedProducts} />
-        <Route path="/products" component={Products} />
-        <Route path="/single-product" component={SingleProduct} />
-        <Route path="/order-history/:id" component={OrderHistory} />
+        <Route exact path="/products" component={Products} />
+        <Route path="/products/:id" component={SingleProduct} />
+        <Route path="/order-history" component={OrderHistory} />
         <Route path="/home" component={Home} />
         {isLoggedIn && (
           <Switch>
@@ -51,7 +51,7 @@ class Routes extends Component {
   }
 }
 
-/**
+/*git b
  * CONTAINER
  */
 const mapState = state => {
