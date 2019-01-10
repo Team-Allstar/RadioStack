@@ -177,6 +177,10 @@ const seed = async () => {
     isCart: false,
     UserId: 3
   }
+  const orders4 = {
+    isCart: false,
+    UserId: 2
+  }
 
   const orderedProducts1 = {
     quantity: 10,
@@ -234,6 +238,7 @@ const seed = async () => {
   await Order.create(orders1)
   await Order.create(orders2)
   await Order.create(orders3)
+  await Order.create(orders4)
 
   await OrderedProducts.create(orderedProducts1)
   await OrderedProducts.create(orderedProducts2)

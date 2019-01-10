@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import {fetchFeaturedProducts} from '../store/products'
 
 class FeaturedProducts extends Component {
-
   async componentDidMount() {
     await this.props.fetchFeaturedProducts()
   }
@@ -24,7 +23,7 @@ class FeaturedProducts extends Component {
                           <img src={el.imageUrl} width="100px" />
                         </td>
                         <td>{el.productName}</td>
-                        <td>{el.productDescription}</td>
+                        {/* <td>{el.productDescription}</td> */}
                         <td>{el.currentPrice}</td>
                       </tr>
                     </Link>
