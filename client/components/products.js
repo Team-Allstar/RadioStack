@@ -4,13 +4,6 @@ import {Link} from 'react-router-dom'
 import {fetchAllProducts} from '../store/products'
 
 class Products extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      // allProducts: []
-    }
-  }
 
   async componentDidMount() {
     await this.props.fetchAllProducts()
@@ -44,9 +37,9 @@ class Products extends Component {
   }
 }
 
-const mapState = state => {
-  return {allProducts: state.products}
-}
+const mapState = state => ({
+  allProducts: state.products.allProducts
+})
 
 const mapDispatch = dispatch => ({
   fetchAllProducts: () => {
