@@ -16,7 +16,7 @@ class Products extends Component {
   }
 
   render() {
-    console.log('LOG', this.props.allProducts)
+    //console.log('LOG', this.props.allProducts)
     return (
       <div id="products">
         {this.props.allProducts
