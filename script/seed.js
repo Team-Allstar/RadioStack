@@ -154,7 +154,7 @@ const seed = async () => {
     CategoryId: 1
   }
 
-  const product6 = {
+  const product7 = {
     productName:
       'Apple MacBook Pro (13" Retina, 2.3GHz Dual-Core Intel Core i5, 8GB RAM, 128GB SSD) ',
     productDescription: 'A drone',
@@ -220,9 +220,16 @@ const seed = async () => {
 
   await Category.create(category1)
   await Category.create(category2)
+  await Category.create(category3)
+  await Category.create(category4)
 
   await Product.create(product1)
   await Product.create(product2)
+  await Product.create(product3)
+  await Product.create(product4)
+  await Product.create(product5)
+  await Product.create(product6)
+  await Product.create(product7)
 
   await Order.create(orders1)
   await Order.create(orders2)
