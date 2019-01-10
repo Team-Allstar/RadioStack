@@ -84,3 +84,8 @@ form div {
   justify-content: center;
   align-content: center;
 }
+
+.product-box {
+  display: flex;
+  justify-content: space-between;
+}
