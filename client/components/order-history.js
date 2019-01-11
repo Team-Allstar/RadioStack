@@ -17,7 +17,7 @@ class OrderHistory extends Component {
   }
 
   render() {
-    console.log(this.props.match.params.id)
+    // console.log(this.props.match.params.id)
     return (
       <div id="order-history">
         <h1>Test</h1>

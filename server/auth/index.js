@@ -16,12 +16,11 @@ module.exports = router
 // })
 
 router.post('/login', async (req, res, next) => {
-  console.log('/ login route got logged')
   try {
     const user = await User.findOne({
       where: {
-        email: req.body.email,
-        password: req.body.password
+        email: req.body.email
+        // password: req.body.password
       }
     })
     if (!user) {
@@ -58,7 +57,6 @@ router.post('/logout', (req, res) => {
 })
 
 router.get('/me', (req, res) => {
-  console.log('auth route req.user', req.user)
   res.json(req.user)
 })
 
