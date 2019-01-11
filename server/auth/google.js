@@ -26,18 +26,34 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: process.env.GOOGLE_CALLBACK
+    //CREATE SECRET FILE LOCALLY, AND THAN SET THEM AS VARIABLE
   }
+  console.log('GOOGLECONFIG', googleConfig)
 
   const strategy = new GoogleStrategy(
     googleConfig,
-    (token, refreshToken, profile, done) => {
+    async (token, refreshToken, profile, done) => {
       const googleId = profile.id
       const name = profile.displayName
       const email = profile.emails[0].value
 
-      User.findOrCreate({
+      await User.findOrCreate({
         where: {googleId},
-        defaults: {name, email}
+        defaults: {
+          id: 20,
+          email,
+          googleId: googleId,
+          firstName: name,
+          lastName: 'test',
+          streetAddress1: 'test',
+          streetAddress2: 'test',
+          city: 'test',
+          state: 'test',
+          zipCode: 'test',
+          phoneNumber: 'test',
+          password: 'test',
+          sale: 'test'
+        }
       })
         .then(([user]) => done(null, user))
         .catch(done)
@@ -51,7 +67,7 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
   router.get(
     '/callback',
     passport.authenticate('google', {
-      successRedirect: '/home',
+      successRedirect: '/',
       failureRedirect: '/login'
     })
   )

@@ -89,3 +89,19 @@ form div {
   display: flex;
   justify-content: space-between;
 }
+
+#google-login-button {
+  border: none;
+  transition: all 0.75s ease;
+  outline: none;
+  border-radius: 3px;
+  background-color: #cf000f;
+  color: #ffffff;
+  padding: 1em;
+  border-radius: 3px;
+  font-size: 40px;
+}
+
+#google-login-button:hover {
+  background-color: #ad000f;
+}
