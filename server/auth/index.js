@@ -2,6 +2,19 @@ const router = require('express').Router()
 const User = require('../db/models/user')
 module.exports = router
 
+// router.get('/me', (req, res, next) => {
+//   try {
+//     const user = req.user
+//     if (!user) {
+//       res.status(404).end()
+//     } else {
+//       res.json(user)
+//     }
+//   } catch (err) {
+//     next(err)
+//   }
+// })
+
 router.post('/login', async (req, res, next) => {
   console.log('/ login route got logged')
   try {
