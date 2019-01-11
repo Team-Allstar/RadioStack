@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 // presentational component
 export const UserHome = props => {
   const {email, password} = props
-
+  console.log('userHome', props)
   return (
     <div>
       <h3>Welcome, {email}</h3>
@@ -16,7 +16,7 @@ export const UserHome = props => {
 // container
 const mapState = state => {
   return {
-    user: state.defaultUser
+    user: state.user
   }
 }
 

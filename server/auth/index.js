@@ -3,6 +3,7 @@ const User = require('../db/models/user')
 module.exports = router
 
 router.post('/login', async (req, res, next) => {
+  console.log('/ login route got logged')
   try {
     const user = await User.findOne({
       where: {
@@ -44,6 +45,7 @@ router.post('/logout', (req, res) => {
 })
 
 router.get('/me', (req, res) => {
+  console.log('auth route req.user', req.user)
   res.json(req.user)
 })
 

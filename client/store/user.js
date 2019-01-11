@@ -30,7 +30,11 @@ export const auth = (email, password, method) => async dispatch => {
   try {
     res = await axios.post(`/auth/${method}`, {email, password})
   } catch (authError) {
-    return dispatch(getUser({error: authError}))
+    return dispatch(
+      getUser({
+        error: authError
+      })
+    )
   }
 
   try {
@@ -52,13 +56,13 @@ export const logout = () => async dispatch => {
 }
 
 // reducer
-export default function(defaultUser = {}, action) {
+export default function(user = {}, action) {
   switch (action.type) {
     case GET_USER:
       return action.user
     case REMOVE_USER:
       return {}
     default:
-      return defaultUser
+      return user
   }
 }
