@@ -1,33 +1,45 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-// import { Link } from 'react-router.dom'
 import {fetchOrderHistory} from '../store/order-history'
-
-// const OrderHistory = ({handleClick, isLoggedIn}) => {
-//   return (
-//     <div id="order-history">
-//       <p>OrderHistory</p>
-//     </div>
-//   )
-// }
+import {Products} from '.'
 
 class OrderHistory extends Component {
   async componentDidMount() {
-    await this.props.fetchOrderHistory(this.props.match.params.id)
+    await this.props.fetchOrderHistory(this.props.userId)
   }
 
   render() {
-    console.log(this.props.match.params.id)
+    console.log('LOGGG', this.props.orderHistory[0])
     return (
       <div id="order-history">
-        <h1>Test</h1>
+        <div>
+          <h1>Order History:</h1>
+        </div>
+        {/* 
+        THIS WORKS
+        {this.props.orderHistory.map(el => {
+          return <div key={el.id}>{el.id}</div>
+        })} */}
+
+        {this.props.orderHistory[0]
+          ? this.props.orderHistory[0].OrderedProducts.map(el => {
+              return (
+                <div>
+                  <div key={el.id}>Price: {el.pricePaid}</div>
+                  <div key={el.id}>Id: {el.id}</div>
+                  <div key={el.id}>{el.id}</div>
+                </div>
+              )
+            })
+          : 'loading'}
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  falseCart: state.falseCart
+  userId: state.user.id,
+  orderHistory: state.orderHistory
 })
 
 const mapDispatch = dispatch => ({
