@@ -4,10 +4,10 @@ import axios from 'axios'
 const GOT_ORDER_HISTORY = 'GOT_ORDER_HISTORY'
 
 // action creators
-const gotOrderHistory = falseCart => {
+const gotOrderHistory = pastOrderData => {
   return {
     type: GOT_ORDER_HISTORY,
-    falseCart
+    pastOrderData
   }
 }
 
@@ -15,7 +15,8 @@ const gotOrderHistory = falseCart => {
 export const fetchOrderHistory = id => {
   return async dispatch => {
     try {
-      const {data} = await axios.get(`/api/orderHistory/${id}`)
+      const response = await axios.get(`/api/order-history/${id}`)
+      const data = response.data
       dispatch(gotOrderHistory(data))
     } catch (err) {
       console.error(err)
@@ -39,11 +40,11 @@ export const fetchOrderHistory = id => {
 
 // export default reducer
 
-export default function(orderHistory = [], action) {
+export default function(state = [], action) {
   switch (action.type) {
     case GOT_ORDER_HISTORY:
-      return [...action.falseCart]
+      return [...action.pastOrderData]
     default:
-      return orderHistory
+      return state
   }
 }
