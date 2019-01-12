@@ -12,7 +12,8 @@ import {
   FeaturedProducts,
   Products,
   SingleProduct,
-  Home
+  Home,
+  NewUserEntry
 } from './components'
 import {me} from './store'
 
@@ -38,6 +39,7 @@ class Routes extends Component {
         <Route exact path="/products" component={Products} />
         <Route path="/products/:id" component={SingleProduct} />
         <Route exact path="/" component={Home} />
+        <Route exact path="/signUpForm" component={NewUserEntry} />
         <Route
           path={`/order-history/${this.props.userId}`}
           component={OrderHistory}

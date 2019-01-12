@@ -62,7 +62,7 @@ const User = db.define('User', {
     type: Sequelize.STRING,
     allowNull: false,
     notEmpty: true,
-    validate: {min: 1000000, max: 9999999},
+    validate: {min: 1000000000, max: 99999999999},
     hooks: {
       beforeValidate: function(input) {
         return Number(

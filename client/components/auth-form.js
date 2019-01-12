@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 import {auth} from '../store'
 
 /**
@@ -23,6 +24,11 @@ const AuthForm = props => {
             <small>Password</small>
           </label>
           <input name="password" type="password" />
+        </div>
+        <div>
+          <Link to="/signUpForm">
+            <button type="button">Sign Up!</button>
+          </Link>
         </div>
         <div>
           <button type="submit">{displayName}</button>

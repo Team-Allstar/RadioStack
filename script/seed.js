@@ -22,7 +22,7 @@ const seed = async () => {
     city: 'city',
     state: 'state',
     zipCode: '12345',
-    phoneNumber: '1231234',
+    phoneNumber: '1234567890',
     email: 'cody1@email.com',
     isAdmin: true,
     password: 'drowssap'
@@ -37,7 +37,7 @@ const seed = async () => {
     city: 'city',
     state: 'state',
     zipCode: '12345',
-    phoneNumber: '1233211',
+    phoneNumber: '10293847561',
     email: 'cody2@email.com',
     password: 'drowssap1'
     // salt: null,
@@ -51,7 +51,7 @@ const seed = async () => {
     city: 'city',
     state: 'state',
     zipCode: '12345',
-    phoneNumber: '1237788',
+    phoneNumber: '3251647582',
     email: 'cody3@email.com',
     isAdmin: false,
     password: 'drowssap12'
@@ -67,7 +67,7 @@ const seed = async () => {
     city: 'city',
     state: 'state',
     zipCode: '12345',
-    phoneNumber: '1237788',
+    phoneNumber: '65472859607',
     email: 'cody3@email.com',
     isAdmin: false,
     password: 'drowssap12'

@@ -13,5 +13,6 @@ export {default as OrderHistory} from './order-history'
 export {default as Products} from './products'
 export {default as SingleProduct} from './single-product'
 export {default as UserHome} from './user-home'
+export {default as NewUserEntry} from './createUser'
 
 export {Login, Signup} from './auth-form'
