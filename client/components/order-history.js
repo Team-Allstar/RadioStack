@@ -9,7 +9,6 @@ class OrderHistory extends Component {
   }
 
   render() {
-    console.log('LOGGG', this.props.orderHistory[0])
     return (
       <div id="order-history">
         <div>

@@ -12,7 +12,6 @@ class Categories extends Component {
   }
 
   render() {
-    console.log('I AM PROPS', this.props)
     return (
       <div id="categories">
         <h1>All Categories:</h1>
