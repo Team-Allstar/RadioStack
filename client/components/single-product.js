@@ -24,11 +24,20 @@ class SingleProduct extends Component {
   }
 
   async addToCartClickHandler() {
+    // alert('test')
+    // const addedToCart =
     await axios.post(
       `/api/ordered-product/${this.props.userId}/${
         this.props.singleProduct.id
       }/${this.state.quantity}`
+      // {
+      //   userId: this.props.userId,
+      //   productId: this.props.singleProduct.id,
+      //   quantity: this.state.quantity
+      // }
     )
+
+    // console.log('addedToCart')
   }
 
   increaseQuantity() {
@@ -58,13 +67,7 @@ class SingleProduct extends Component {
 
         <Button onClick={this.decreaseQuantity}>-</Button>
         <Button onClick={this.increaseQuantity}>+</Button>
-        <Button
-          as={Link}
-          to={`/cart/${this.props.userId}`}
-          onClick={this.props.addtoCartClickHandler}
-        >
-          Add to Cart
-        </Button>
+        <Button onClick={this.addToCartClickHandler}>Add to Cart</Button>
       </div>
     )
   }

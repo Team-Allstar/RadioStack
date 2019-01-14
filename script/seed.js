@@ -184,35 +184,35 @@ const seed = async () => {
 
   const orderedProducts1 = {
     quantity: 10,
-    pricePaid: 13999,
+    pricePaid: null,
     ProductId: 1,
     UserId: 1,
     OrderId: 1
   }
   const orderedProducts2 = {
     quantity: 1,
-    pricePaid: 149999,
+    pricePaid: null,
     ProductId: 2,
     UserId: 1,
     OrderId: 1
   }
   const orderedProducts3 = {
     quantity: 1,
-    pricePaid: 13999,
+    pricePaid: null,
     ProductId: 1,
     UserId: 2,
     OrderId: 2
   }
   const orderedProducts4 = {
     quantity: 1,
-    pricePaid: 13999,
+    pricePaid: null,
     ProductId: 1,
     UserId: 3,
     OrderId: 3
   }
   const orderedProducts5 = {
     quantity: 1,
-    pricePaid: 149999,
+    pricePaid: null,
     ProductId: 2,
     UserId: 3,
     OrderId: 3
