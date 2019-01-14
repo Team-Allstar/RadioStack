@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 import {fetchAllProducts} from '../store/products'
 
 class Products extends Component {
-
   async componentDidMount() {
     await this.props.fetchAllProducts()
   }

@@ -20,3 +20,25 @@ router.get('/:userId', async (req, res, next) => {
     next(err)
   }
 })
+
+router.get('/me', async (req, res, next) => {
+  try {
+    const signedInUser = await User.findOne({
+      where: {
+        email: req.body.email,
+        password: req.body.password
+      }
+    })
+    if (signedInUser) {
+      req.login(signedInUser, error => {
+        if (error) {
+          return next(error)
+        } else {
+          res.json(signedInUser)
+        }
+      })
+    }
+  } catch (err) {
+    next(err)
+  }
+})

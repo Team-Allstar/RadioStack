@@ -23,9 +23,9 @@ const seed = async () => {
     state: 'state',
     zipCode: '12345',
     phoneNumber: '1231234',
-    email: 'cody1@email.com',
+    email: '1@email.com',
     isAdmin: true,
-    password: 'drowssap'
+    password: '1'
     // salt: null,
     // googleId: null
   }
