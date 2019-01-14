@@ -26,9 +26,6 @@ class NewUserEntry extends Component {
   handleSubmit = event => {
     event.preventDefault()
     this.props.postNewUser(this.state)
-    console.log('IAMSTATE', this.state)
-    // how to make user auto log in when they finish signing up
-    //without having to log in
     this.setState({
       firstName: '',
       lastName: '',
