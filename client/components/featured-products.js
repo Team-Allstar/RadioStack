@@ -24,7 +24,7 @@ class FeaturedProducts extends Component {
                         </td>
                         <td>{el.productName}</td>
                         {/* <td>{el.productDescription}</td> */}
-                        <td>{el.currentPrice}</td>
+                        <td>${el.currentPrice / 100}</td>
                       </tr>
                     </Link>
                   </div>

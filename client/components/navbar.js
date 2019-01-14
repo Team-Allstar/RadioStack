@@ -54,7 +54,7 @@ class Navbar extends Component {
         ) : (
           <div />
         )}
-        <Menu.Item as={Link} name="Cart" to="/cart">
+        <Menu.Item as={Link} name="Cart" to={`/cart/${this.props.userId}`}>
           Cart
         </Menu.Item>
       </Menu>
