@@ -4,18 +4,29 @@ import history from '../history'
 // action types
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
+const ADD_USER = 'ADD_USER'
 
-// Action creators
-const getUser = user => ({
-  type: GET_USER,
-  user
-})
+/**
+ * ACTION CREATORS
+ */
+const getUser = user => ({type: GET_USER, user})
+const removeUser = () => ({type: REMOVE_USER})
+const addUser = user => ({type: ADD_USER, user})
 
-const removeUser = () => ({
-  type: REMOVE_USER
-})
+/**
+ * THUNK CREATORS
+ */
 
-// thunk creators
+export const postUser = user => {
+  return async dispatch => {
+    const response = await axios.post('/api/users', user)
+    const message = response.data
+    console.log('I AM MESSAGE', message)
+    const action = addUser(message)
+    dispatch(action)
+  }
+}
+
 export const me = () => async dispatch => {
   try {
     const res = await axios.get('/auth/me')
@@ -59,6 +70,8 @@ export const logout = () => async dispatch => {
 export default function(user = {}, action) {
   switch (action.type) {
     case GET_USER:
+      return action.user
+    case ADD_USER:
       return action.user
     case REMOVE_USER:
       return {}
