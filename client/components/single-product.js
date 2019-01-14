@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
 import {fetchSingleProduct} from '../store/singleProduct'
 import {Button} from 'semantic-ui-react'
-import axios from 'axios'
+import {addToCart} from '../store/cart'
 
 class SingleProduct extends Component {
   constructor() {
@@ -23,21 +23,12 @@ class SingleProduct extends Component {
     this.props.fetchMyProduct(productId)
   }
 
-  async addToCartClickHandler() {
-    // alert('test')
-    // const addedToCart =
-    await axios.post(
-      `/api/ordered-product/${this.props.userId}/${
-        this.props.singleProduct.id
-      }/${this.state.quantity}`
-      // {
-      //   userId: this.props.userId,
-      //   productId: this.props.singleProduct.id,
-      //   quantity: this.state.quantity
-      // }
+  addToCartClickHandler() {
+    this.props.addToCart(
+      this.props.userId,
+      this.props.singleProduct.id,
+      this.state.quantity
     )
-
-    // console.log('addedToCart')
   }
 
   increaseQuantity() {
@@ -59,6 +50,7 @@ class SingleProduct extends Component {
           <img src={this.props.singleProduct.imageUrl} width="100px" />
           <h1>Product Details:</h1>
           <li>PRODUCT NAME : {this.props.singleProduct.productName}</li>
+          <li>PRODUCT ID : {this.props.singleProduct.id}</li>
           <li>PRODUCT INFO : {this.props.singleProduct.productDescription}</li>
           <li>OUR STOCK : {this.props.singleProduct.productInventory}</li>
           <li>CURRENT PRICE :${this.props.singleProduct.currentPrice / 100}</li>
@@ -84,8 +76,8 @@ const mapDispatchToProps = dispatch => {
     fetchMyProduct: id => {
       dispatch(fetchSingleProduct(id))
     },
-    addToCartClickHandler: product => {
-      dispatch(addToCart(product))
+    addToCart: (userId, productId, quantity) => {
+      dispatch(addToCart(userId, productId, quantity))
     }
   }
 }
