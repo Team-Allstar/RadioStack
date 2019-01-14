@@ -25,7 +25,7 @@ const seed = async () => {
     phoneNumber: '1234567890',
     email: 'cody1@email.com',
     isAdmin: true,
-    password: 'drowssap'
+    password: '1'
     // salt: null,
     // googleId: null
   }

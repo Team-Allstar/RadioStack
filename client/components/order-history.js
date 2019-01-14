@@ -19,18 +19,28 @@ class OrderHistory extends Component {
         {this.props.orderHistory.map(el => {
           return <div key={el.id}>{el.id}</div>
         })} */}
+        <div>
+          {this.props.orderHistory[0]
+            ? this.props.orderHistory.map(order => {
+                return (
+                  <div>
+                    <h2>Order Number: {order.id}</h2>
 
-        {this.props.orderHistory[0]
-          ? this.props.orderHistory[0].OrderedProducts.map(el => {
-              return (
-                <div>
-                  <div key={el.id}>Price: {el.pricePaid}</div>
-                  <div key={el.id}>Id: {el.id}</div>
-                  <div key={el.id}>{el.id}</div>
-                </div>
-              )
-            })
-          : 'loading'}
+                    {order.OrderedProducts.map(el => {
+                      return (
+                        <div>
+                          <img src={el.Product.imageUrl} width="100px" />
+
+                          <div key={el.id}>Item: {el.Product.productName}</div>
+                          <div key={el.id}>Price paid: {el.pricePaid}</div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                )
+              })
+            : 'loading'}
+        </div>
       </div>
     )
   }
