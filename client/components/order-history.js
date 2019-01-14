@@ -39,7 +39,7 @@ class OrderHistory extends Component {
                   </div>
                 )
               })
-            : 'loading'}
+            : 'You have not made any previous purchases'}
         </div>
       </div>
     )

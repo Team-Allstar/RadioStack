@@ -19,7 +19,7 @@ const Product = db.define('Product', {
     defaultValue: 0
   },
   currentPrice: {
-    type: Sequelize.DECIMAL(9, 5),
+    type: Sequelize.INTEGER,
     defaultValue: 0
   },
   featured: {

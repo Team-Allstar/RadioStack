@@ -19,7 +19,7 @@ label {
   display: block;
 }
 
-nav a {
+/* nav a {
   color: black;
   display: flex;
   background-color: #21e663;
@@ -29,7 +29,7 @@ nav a {
 
 nav a:hover {
   background-color: #8b1717;
-}
+} */
 
 nav {
   position: absolute;
@@ -38,9 +38,10 @@ nav {
 }
 
 .navLink {
-  display: inline-block;
+  /* display: inline-block; */
   margin: 0px 10px;
 }
+
 form div {
   margin: 1em;
   display: inline-block;

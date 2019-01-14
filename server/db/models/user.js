@@ -18,7 +18,7 @@ const User = db.define('User', {
   },
   lastName: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
     notEmpty: true,
     hooks: {
       beforeValidate: function(input) {
@@ -31,7 +31,7 @@ const User = db.define('User', {
   },
   streetAddress1: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
     notEmpty: true
   },
   streetAddress2: {
@@ -39,17 +39,17 @@ const User = db.define('User', {
   },
   city: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
     notEmpty: true
   },
   state: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
     notEmpty: true
   },
   zipCode: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
     notEmpty: true,
     validate: {min: 10000, max: 99999},
     hooks: {
@@ -60,7 +60,7 @@ const User = db.define('User', {
   },
   phoneNumber: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
     notEmpty: true,
     validate: {min: 1000000000, max: 99999999999},
     hooks: {

@@ -1,9 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 import {auth} from '../store'
-
+import {Button} from 'semantic-ui-react'
 /**
  * COMPONENT
  */
@@ -37,9 +38,11 @@ const AuthForm = props => {
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>
-      <button id="google-login-button">
-        <a href="/auth/google">{displayName} with Google</a>
-      </button>
+      <Button as={Link} to="/auth/google" class="ui google plus button">
+        <i className="google plus icon" />
+        {displayName} with Google
+      </Button>
+
       {/* <form method="get" action="/auth/google">
         <button type="submit">Login in With Google</button>
       </form> */}
