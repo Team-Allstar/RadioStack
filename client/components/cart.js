@@ -30,7 +30,7 @@ class Cart extends Component {
       console.log('LOG CART', this.props.cart[0])
       total = this.props.cart[0].OrderedProducts.reduce((accum, curr) => {
         console.log('curr', curr)
-        return accum + Number(curr.Product.currentPrice)
+        return accum + Number(curr.Product.currentPrice) * Number(curr.quantity)
       }, 0)
     }
 
@@ -45,13 +45,25 @@ class Cart extends Component {
                 return (
                   <div>
                     <Link to={`/products/${el.Product.id}`}>
-                      <img src={el.Product.imageUrl} width="100px" />
+                      <img
+                        key={`0${el.Product.id}`}
+                        src={el.Product.imageUrl}
+                        width="100px"
+                      />
 
                       <div key={`A${el.Product.id}`}>
                         Item: {el.Product.productName}
                       </div>
                       <div key={`B${el.Product.id}`}>
-                        Price paid: ${el.Product.currentPrice / 100}
+                        Item Price: ${el.Product.currentPrice / 100}
+                      </div>
+                      <div key={`C${el.Product.id}`}>
+                        Quantity: {Number(el.quantity)}
+                      </div>
+                      <div key={`C${el.Product.id}`}>
+                        Extended Price:{' '}
+                        {Number(el.quantity) *
+                          Number(el.Product.currentPrice / 100)}
                       </div>
                     </Link>
                   </div>

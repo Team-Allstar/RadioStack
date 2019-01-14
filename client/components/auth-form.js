@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
 import {Button} from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 /**
  * COMPONENT
  */
