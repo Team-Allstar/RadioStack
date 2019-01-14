@@ -78,7 +78,8 @@ form div {
 #featured-products,
 #products,
 #single-product,
-#home {
+#home,
+#signUpForm {
   margin-top: 70px;
   display: flex;
   justify-content: center;
