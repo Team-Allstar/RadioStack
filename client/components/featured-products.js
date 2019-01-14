@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchFeaturedProducts} from '../store/products'
-
+import {Grid, Header} from 'semantic-ui-react'
 class FeaturedProducts extends Component {
   async componentDidMount() {
     await this.props.fetchFeaturedProducts()
@@ -11,7 +11,7 @@ class FeaturedProducts extends Component {
   render() {
     return (
       <div id="products">
-        <h1>Featured Products:</h1>
+        <Header as="h1">Featured Products:</Header>
         <table width="700px">
           <tbody>
             {this.props.allFeaturedProducts
