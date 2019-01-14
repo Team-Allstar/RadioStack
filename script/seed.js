@@ -96,7 +96,7 @@ const seed = async () => {
     productName: 'Dolby Dimension Wireless Bluetooth Over Ear Headphones',
     productDescription: `Dolby Dimension gives you a smarter way to binge - one that's created just for you. Now you'll have incredible cinematic sound for all your entertainment, plus control over how much of your surroundings you hear with Dolby LifeMix. Long-lasting comfort, with the ability to easily switch from TV to phone to tablet and more, rounds out the ultimate binge-watching experience.`,
     productInventory: 100,
-    currentPrice: 139.99,
+    currentPrice: 13999,
     featured: false,
     //imageUrl:
     CategoryId: 3
@@ -105,7 +105,7 @@ const seed = async () => {
     productName: `Audio-Technica ATH-MSR7NC`,
     productDescription: `These headphones are outfitted with exclusive 45 millimeter True Motion Drivers to deliver distortion-free audio reproduction with extended frequency response. A miniature microphone is incorporated into the top of each earcup to pick up ambient noise that can then be blocked by an appropriate sound-cancelling signal when the active noise-cancelling function is activated. Having the microphone on the top, instead of on the side, of the housing ensures consistent noise cancellation unaffected by the user’s head movement or by wind noise. Each earcup also has an acoustic vent, ideally positioned on the side of the housing, 90 degrees from mic, to enhance tuning without negatively affecting sound quality. The result is consistent Hi-Res Audio reproduction whether in active or passive noise-cancelling modes.`,
     productInventory: 70,
-    currentPrice: 299.99,
+    currentPrice: 29999,
     featured: true,
     //imageUrl:
     CategoryId: 3
@@ -116,7 +116,7 @@ const seed = async () => {
     productDescription: `The most powerful Bose noise cancelling headphones yet.
     Clear away the distractions of the world, and focus on what matters most. Go deeper into your music, work, and passions — with no noise in the way. Plus with Amazon Alexa, you can enjoy entertainment, get information, and manage your day. Just ask.`,
     productInventory: 45,
-    currentPrice: 349.99,
+    currentPrice: 34999,
     featured: false,
     //imageUrl:
     CategoryId: 3
@@ -125,9 +125,9 @@ const seed = async () => {
   const product4 = {
     productName: 'DJI Mavic 2 Zoom Drone Quadcopter',
     productDescription:
-      'Beginner drones are often cheaper because they offer fewer bells and whistles. In addition to beginner drones, there are some high-end drones that are also suitable for novice pilots, and we’ll talk about those in this guide too. We will recommend the best drones for complete novices as well as advanced beginners looking to take their skills to the next level.There aren’t a lot of drones that feature both high-quality cameras and propeller guards, but DJI manages to have multiple beginner drone offerings that are among the best on the market. So, without further delay, let’s take a look at their best beginner drones!',
+      'Beginner drones are often cheaper because they offer fewer bells and whistles In addition to beginner drones, there are some high-end drones that are also suitable for novice pilots, and we’ll talk about those in this guide too. We will recommend the best drones for complete novices as well as advanced beginners looking to take their skills to the next level.There aren’t a lot of drones that feature both high-quality cameras and propeller guards, but DJI manages to have multiple beginner drone offerings that are among the best on the market. So, without further delay, let’s take a look at their best beginner drones!',
     productInventory: 70,
-    currentPrice: 1249.99,
+    currentPrice: 124999,
     featured: true,
     //imageUrl:
     CategoryId: 2
@@ -138,7 +138,7 @@ const seed = async () => {
     productDescription:
       'Built in partnership with Ryze Tech, the DJI Tello Quadcopter is designed to be a cute, fun, and educational quadcopter drone. Its tiny form factor and smart Intel processor enable it to perform exciting aerial tricks on a whim, all through smartphone control. Download the free Tello app and get going, with intuitive controls for entertaining flying maneuvers. The included battery will power up to 13 minutes of flight on a full charge. At the front of the Tello is a camera capable of streaming 720p video back to your smartphone and capturing 5-megapixel photos in flight. The intelligent flight processor can coordinate camera movements for some custom shooting angles. The vision positioning system uses a downward-facing camera to ensure stable hovering when desired.',
     productInventory: 70,
-    currentPrice: 149.99,
+    currentPrice: 14999,
     featured: false,
     //imageUrl:
     CategoryId: 2
@@ -148,7 +148,7 @@ const seed = async () => {
     productName: 'HP 27er 27-in IPS LED Backlit Monitor',
     productDescription: `Our thinnest LCD display yet has a sleek design that's easy on the eyes. And the crisp, vibrant view from almost any angle comes at an ultra-affordable price.`,
     productInventory: 70,
-    currentPrice: 179.99,
+    currentPrice: 17999,
     featured: true,
     //imageUrl:
     CategoryId: 1
@@ -159,7 +159,7 @@ const seed = async () => {
       'Apple MacBook Pro (13" Retina, 2.3GHz Dual-Core Intel Core i5, 8GB RAM, 128GB SSD) ',
     productDescription: 'A drone',
     productInventory: 70,
-    currentPrice: 1499.99,
+    currentPrice: 149999,
     featured: true,
     //imageUrl:
     CategoryId: 4
@@ -184,35 +184,35 @@ const seed = async () => {
 
   const orderedProducts1 = {
     quantity: 10,
-    pricePaid: 139.99,
+    pricePaid: null,
     ProductId: 1,
     UserId: 1,
     OrderId: 1
   }
   const orderedProducts2 = {
     quantity: 1,
-    pricePaid: 1499.99,
+    pricePaid: null,
     ProductId: 2,
     UserId: 1,
     OrderId: 1
   }
   const orderedProducts3 = {
     quantity: 1,
-    pricePaid: 139.99,
+    pricePaid: null,
     ProductId: 1,
     UserId: 2,
     OrderId: 2
   }
   const orderedProducts4 = {
     quantity: 1,
-    pricePaid: 139.99,
+    pricePaid: null,
     ProductId: 1,
     UserId: 3,
     OrderId: 3
   }
   const orderedProducts5 = {
     quantity: 1,
-    pricePaid: 1499.99,
+    pricePaid: null,
     ProductId: 2,
     UserId: 3,
     OrderId: 3

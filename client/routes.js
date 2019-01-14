@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import {
   Login,
   Signup,
-  UserHome,
   Cart,
   OrderHistory,
   Categories,
@@ -13,7 +12,8 @@ import {
   Products,
   SingleProduct,
   Home,
-  NewUserEntry
+  NewUserEntry,
+  SignUpSuccess
 } from './components'
 import {me} from './store'
 
@@ -33,12 +33,13 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route path="/cart" component={Cart} />
+        <Route path={`/cart/${this.props.userId}`} component={Cart} />
         <Route path="/categories" component={Categories} />
         <Route exact path="/products/featured" component={FeaturedProducts} />
         <Route exact path="/products" component={Products} />
         <Route path="/products/:id" component={SingleProduct} />
         <Route exact path="/" component={Home} />
+        <Route exact path="/signed-up" component={SignUpSuccess} />
         <Route exact path="/signUpForm" component={NewUserEntry} />
         <Route
           path={`/order-history/${this.props.userId}`}

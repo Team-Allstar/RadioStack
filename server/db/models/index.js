@@ -16,6 +16,9 @@ User.hasMany(Order)
 
 Product.belongsTo(Category)
 
+// Product.belongsToMany(Order, {through: OrderedProduct});
+// Order.belongsToMany(Order, {through: OrderedProduct});
+
 Product.hasMany(OrderedProduct)
 OrderedProduct.belongsTo(Product)
 

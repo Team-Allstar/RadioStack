@@ -7,9 +7,8 @@ module.exports = router
 router.get('/:userId', async (req, res, next) => {
   try {
     const userId = req.params.userId
-    const cart = await Order.findAll({
+    const cart = await Order.findOrCreate({
       where: {
-        // userId: req.user.id || req.session.id,
         UserId: userId,
         isCart: true
       },
