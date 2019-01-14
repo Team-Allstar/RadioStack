@@ -16,7 +16,7 @@ class NewUserEntry extends Component {
       streetAddress2: '',
       city: '',
       state: '',
-      zipCode: '', //how do you handle zip codes that start with 000023?
+      zipCode: '', 
       phoneNumber: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
