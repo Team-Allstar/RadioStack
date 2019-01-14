@@ -72,7 +72,7 @@ const mapDispatch = (dispatch, ownProps) => {
       const email = evt.target.email.value
       const password = evt.target.password.value
       dispatch(auth(email, password, formName)).then(() => {
-        ownProps.history.push('/user-home')
+        ownProps.history.push('/')
       })
     }
   }
