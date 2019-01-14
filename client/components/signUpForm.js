@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 // Might need HtmlFor in the label ex. htmlFor="firstName"
 
@@ -8,7 +9,7 @@ const SignUpForm = props => {
       <form onSubmit={props.handleSubmit}>
         <h1>PLEASE FILL IN YOUR INFORMATION</h1>
         <label>
-          First Name :
+          First Name* :
           <input
             type="text"
             onChange={props.handleChange}
@@ -17,7 +18,7 @@ const SignUpForm = props => {
           />
         </label>
         <label>
-          Last Name :
+          Last Name* :
           <input
             type="text"
             onChange={props.handleChange}
@@ -26,7 +27,7 @@ const SignUpForm = props => {
           />
         </label>
         <label>
-          E-Mail :
+          E-Mail* :
           <input
             type="text"
             onChange={props.handleChange}
@@ -35,7 +36,7 @@ const SignUpForm = props => {
           />
         </label>
         <label>
-          Password :
+          Password* :
           <input
             type="text"
             onChange={props.handleChange}
@@ -99,6 +100,7 @@ const SignUpForm = props => {
         </label>
         <button type="submit">SUBMIT</button>
       </form>
+      <p>*required</p>
     </div>
   )
 }
