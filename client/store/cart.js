@@ -32,7 +32,7 @@ const checkOutCart = cart => {
 export const checkoutCart = id => {
   return async dispatch => {
     try {
-      const response = await axios.put(`/api/cart/${id}`)
+      const response = await axios.put(`/api/cart/checkout/${id}`)
       const message = response.data
       const action = checkOutCart(message)
       dispatch(action)
