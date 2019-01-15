@@ -54,9 +54,21 @@ class Navbar extends Component {
         ) : (
           <div />
         )}
-        <Menu.Item as={Link} name="Cart" to={`/cart/${this.props.userId}`}>
-          Cart
-        </Menu.Item>
+        {this.props.isLoggedIn ? (
+          <div>
+            <Menu.Item
+              as={Link}
+              name="Cart-Logged-In"
+              to={`/cart/${this.props.userId}`}
+            >
+              User Cart
+            </Menu.Item>
+          </div>
+        ) : (
+          <Menu.Item as={Link} name="Cart-Guest" to="/cart/guest">
+            Guest Cart
+          </Menu.Item>
+        )}
       </Menu>
     )
   }
