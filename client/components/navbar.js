@@ -24,9 +24,9 @@ class Navbar extends Component {
           src="/images/logos/RadioStack.png"
         />
 
-        <Menu.Item as={Link} name="Categories" to="/categories">
+        {/* <Menu.Item as={Link} name="Categories" to="/categories">
           Categories
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item as={Link} name="Procuts" to="/products">
           Products
         </Menu.Item>
@@ -54,9 +54,21 @@ class Navbar extends Component {
         ) : (
           <div />
         )}
-        <Menu.Item as={Link} name="Cart" to={`/cart/${this.props.userId}`}>
-          Cart
-        </Menu.Item>
+        {this.props.isLoggedIn ? (
+          <div>
+            <Menu.Item
+              as={Link}
+              name="Cart-Logged-In"
+              to={`/cart/${this.props.userId}`}
+            >
+              User Cart
+            </Menu.Item>
+          </div>
+        ) : (
+          <Menu.Item as={Link} name="Cart-Guest" to="/cart/guest">
+            Guest Cart
+          </Menu.Item>
+        )}
       </Menu>
     )
   }

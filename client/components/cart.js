@@ -3,13 +3,16 @@ import {connect} from 'react-redux'
 import {fetchCart} from '../store/cart'
 import {Link} from 'react-router-dom'
 import {Button} from 'semantic-ui-react'
+import {checkoutCart} from '../store/cart'
 class Cart extends Component {
   constructor() {
     super()
 
     this.state = {
-      total: 0
+      total: 0,
+      cart: {}
     }
+    this.checkOutClickHandler = this.checkOutClickHandler.bind(this)
     // this.calculateCart = this.calculateCart.bind(this)
   }
 
@@ -23,10 +26,15 @@ class Cart extends Component {
   //   }, 0)
   // }
 
+  checkOutClickHandler() {
+    this.props.checkoutCart(this.props.cart[0].id)
+    window.location = `/thank-you`
+  }
+
   render() {
     let total = 0
 
-    if (this.props.cart[0]) {
+    if (this.props.cart[0] && this.props.cart[0].OrderedProducts) {
       console.log('LOG CART', this.props.cart[0])
       total = this.props.cart[0].OrderedProducts.reduce((accum, curr) => {
         console.log('curr', curr)
@@ -40,7 +48,7 @@ class Cart extends Component {
           <h1>Cart:</h1>
         </div>
         <div>
-          {this.props.cart[0]
+          {this.props.cart[0] && this.props.cart[0].OrderedProducts
             ? this.props.cart[0].OrderedProducts.map(el => {
                 return (
                   <div>
@@ -72,7 +80,7 @@ class Cart extends Component {
             : 'Cart is empty'}
         </div>
         <p>Total: ${`${total / 100}`}</p>
-        <Button>Checkout</Button>
+        <Button onClick={this.checkOutClickHandler}>Checkout</Button>
       </div>
     )
   }
@@ -86,6 +94,9 @@ const mapStateToProps = state => ({
 const mapDispatch = dispatch => ({
   fetchCart: id => {
     dispatch(fetchCart(id))
+  },
+  checkoutCart: id => {
+    dispatch(checkoutCart(id))
   }
 })
 
