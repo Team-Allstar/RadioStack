@@ -6,10 +6,6 @@ import {logout, me} from '../store'
 import {Menu, Image} from 'semantic-ui-react'
 // import {Categories} from '.'
 class Navbar extends Component {
-  // constructor() {
-  //   super()
-  // }
-
   async componentDidMount() {
     await this.props.me()
   }
@@ -23,11 +19,7 @@ class Navbar extends Component {
           size="small"
           src="/images/logos/RadioStack.png"
         />
-
-        {/* <Menu.Item as={Link} name="Categories" to="/categories">
-          Categories
-        </Menu.Item> */}
-        <Menu.Item as={Link} name="Products" to="/products">
+        <Menu.Item as={Link} name="Procuts" to="/products">
           Products
         </Menu.Item>
         {this.props.isLoggedIn ? (
@@ -104,7 +96,3 @@ Navbar.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired
 }
-
-// <div id="navbar">
-
-// </div>
