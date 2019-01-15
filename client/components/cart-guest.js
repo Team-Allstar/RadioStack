@@ -69,7 +69,7 @@ class CartGuest extends Component {
 
     return (
       <div id="cart">
-        <div>
+        <div id="title">
           <h1>Cart:</h1>
         </div>
         <div>
