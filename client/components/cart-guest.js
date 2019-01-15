@@ -97,16 +97,12 @@ class CartGuest extends Component {
                       </div>
                     </Link>
                   </div>
-
-                  // <p>Total: ${`${(total / 100).toFixed(2)}`}</p>
-                  // <Button onClick={this.checkoutClickHandler}>
-
-                  //   Checkout
-                  // </Button>
                 )
               })
             : 'Cart is empty'}
         </div>
+        <p>Total: ${`${total / 100}`}</p>
+        <Button onClick={this.checkOutClickHandler}>Checkout</Button>
       </div>
     )
   }
