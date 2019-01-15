@@ -25,9 +25,24 @@ router.get('/:userId', async (req, res, next) => {
   }
 })
 
-router.put('/:cartId', async (req, res, next) => {
+router.put('/checkout/:cartId', async (req, res, next) => {
   const cartId = req.params.cartId
   try {
+    const orderedProducts = await OrderedProduct.findAll({
+      where: {
+        OrderId: cartId
+      },
+      include: {
+        model: Product
+      }
+    })
+
+    orderedProducts.map(item => {
+      item.update({
+        pricePaid: item.Product.dataValues.currentPrice
+      })
+    })
+
     const currentCart = await Order.findOne({
       where: {
         id: cartId,
@@ -37,7 +52,7 @@ router.put('/:cartId', async (req, res, next) => {
     const checkedOutCart = await currentCart.update({
       isCart: false
     })
-    res.json(checkedOutCart)
+    res.json(orderedProducts[0])
   } catch (error) {
     next(error)
   }
