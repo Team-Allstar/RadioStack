@@ -9,19 +9,24 @@ describe('Order db test', () => {
   })
 
   describe('Order Model', () => {
-    let checkOrder
+    // let checkOrder
 
-    beforeEach(async () => {
-      checkOrder = await Order.create({
-        isCart: true
-      })
-    })
+    // beforeEach(async () => {
+    //   checkOrder = await Order.create({
+    //     isCart: true
+    //   })
+    // })
     it('checks if isCart is a boolean', async () => {
       const cart = await Order.create({
         isCart: false
       })
 
       expect(cart.isCart).to.equal(false)
+    })
+    it('checks if default value is true', async () => {
+      const cart = await Order.create()
+
+      expect(cart.isCart).to.equal(true)
     })
   }) // end describe('correctPassword')
 }) // end describe('instanceMethods')

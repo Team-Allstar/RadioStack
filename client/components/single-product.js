@@ -47,6 +47,7 @@ class SingleProduct extends Component {
           `prodId${this.props.singleProduct.id}`,
           productDetails
         )
+        window.location = `/cart/guest`
       } else {
         const currentProduct = window.localStorage.getItem(
           `prodId${this.props.singleProduct.id}`
@@ -61,7 +62,8 @@ class SingleProduct extends Component {
           `prodId${this.props.singleProduct.id}`,
           updatedQuantityProduct
         )
-        window.location = `/cart/${this.props.userId}`
+
+        window.location = `/cart/guest`
       }
       console.log('local storage', window.localStorage)
     }

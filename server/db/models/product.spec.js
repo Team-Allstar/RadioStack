@@ -10,21 +10,6 @@ describe('Product db test', () => {
   })
 
   describe('Product Model', () => {
-    const fullText =
-      'Our thinnest LCD display yet has a sleek design thats easy on the eyes. And the crisp, vibrant view from almost any angle comes at an ultra-affordable price.'
-    let product
-
-    beforeEach(() => {
-      product = Product.build({
-        productName: 'Test',
-        productDesrcription: fullText,
-        productInventory: 1,
-        currentPrice: 1000,
-        featured: false,
-        imageUrl: '/images/products/default-product.jpg'
-      })
-    })
-
     it('checks whether product is an object', async () => {
       let description =
         'Our thinnest LCD display yet has a sleek design thats easy on the eyes. And the crisp, vibrant view from almost any angle comes at an ultra-affordable price.'
@@ -49,6 +34,18 @@ describe('Product db test', () => {
         productDescription: description
       })
       expect(test.productDescription).to.equal(description)
+    })
+    it('checks if default value is 0', async () => {
+      let description =
+        'Our thinnest LCD display yet has a sleek design thats easy on the eyes. And the crisp, vibrant view from almost any angle comes at an ultra-affordable price.'
+
+      const product = await Product.create({
+        productName: 'HP 27er 27-in IPS LED Backlit Monitor',
+        productDescription: description
+      })
+
+      expect(product.productInventory).to.equal(0)
+      expect(product.currentPrice).to.equal(0)
     })
   }) // end describe('correctPassword')
 }) // end describe('instanceMethods')
