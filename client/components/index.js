@@ -4,6 +4,7 @@
  * having to figure out which file they belong to!
  */
 export {default as Cart} from './cart'
+export {default as CartGuest} from './cart-guest'
 export {default as Categories} from './categories'
 export {default as FeaturedProducts} from './featured-products'
 export {default as Home} from './home'
