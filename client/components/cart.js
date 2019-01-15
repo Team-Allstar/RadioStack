@@ -20,15 +20,15 @@ class Cart extends Component {
     this.setState({cart: await this.props.fetchCart(this.props.userId)})
   }
 
-  // calculateCart(aCart) {
-  //   aCart[0].OrderedProducts.reduce((accum, curr) => {
-  //     return accum + Number(curr.pricePaid)
-  //   }, 0)
-  // }
-
   checkOutClickHandler() {
-    this.props.checkoutCart(this.props.cart[0].id)
-    window.location = `/thank-you`
+    if (this.props.cart[0] && this.props.cart[0].OrderedProducts) {
+      this.props.checkoutCart(this.props.cart[0].id)
+      window.location = `/thank-you`
+    } else {
+      alert(
+        'Your cart is empty. You cannot checkout until you select products to purchase.'
+      )
+    }
   }
 
   render() {
