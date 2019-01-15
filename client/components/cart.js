@@ -44,7 +44,7 @@ class Cart extends Component {
 
     return (
       <div id="cart">
-        <div id="title">
+        <div className="title">
           <h1>Cart:</h1>
         </div>
         <div>
@@ -79,7 +79,7 @@ class Cart extends Component {
               })
             : 'Cart is empty'}
         </div>
-        <p>Total: ${`${total / 100}`}</p>
+        <h2>Total: ${`${total / 100}`}</h2>
         <Button onClick={this.checkOutClickHandler}>Checkout</Button>
       </div>
     )

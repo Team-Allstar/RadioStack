@@ -18,5 +18,6 @@ export {default as NewUserEntry} from './new-user-entry'
 export {default as GuestCheckoutEntry} from './guest-checkout-entry'
 export {default as SignUpSuccess} from './sign-up-success'
 export {default as ThankYou} from './thank-you'
+export {default as APIWarning} from './api-warning'
 
 export {Login, Signup} from './auth-form'

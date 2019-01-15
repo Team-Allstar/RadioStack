@@ -11,7 +11,9 @@ class Products extends Component {
   render() {
     return (
       <div id="products">
-        <h1 id="title">All Products:</h1>
+        <div className="title">
+          <h1>All Products:</h1>
+        </div>
         <table width="700px">
           <tbody>
             {this.props.allProducts
