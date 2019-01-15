@@ -24,9 +24,9 @@ class Navbar extends Component {
           src="/images/logos/RadioStack.png"
         />
 
-        <Menu.Item as={Link} name="Categories" to="/categories">
+        {/* <Menu.Item as={Link} name="Categories" to="/categories">
           Categories
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item as={Link} name="Procuts" to="/products">
           Products
         </Menu.Item>

@@ -9,23 +9,41 @@ class CartGuest extends Component {
     super()
 
     this.state = {
-      total: 0
+      total: 0,
+      cart: {}
     }
-    // this.calculateCart = this.calculateCart.bind(this)
+
+    this.checkoutClickHandler = this.checkoutClickHandler.bind(this)
   }
 
   async componentDidMount() {
-    this.setState({cart: await this.props.fetchCart(this.props.userId)})
+    let cartObject = window.localStorage
+
+    this.setState({cart: cartObject})
+  }
+
+  checkoutClickHandler() {
+    // window.location = '/sign-up'
+    window.localStorage.clear()
   }
 
   render() {
     let total = 0
+    let cartArray = Object.keys(this.state.cart)
+    // let testobject = {puppy: 'babydog'}
 
-    if (this.props.cart[0]) {
-      console.log('LOG CART', this.props.cart[0])
-      total = this.props.cart[0].OrderedProducts.reduce((accum, curr) => {
+    // console.log('TestObject', testobject)
+    console.log('STATEOBJ', this.state.cart)
+    console.log('STATEARR', cartArray)
+
+    if (cartArray[0]) {
+      total = cartArray.reduce((accum, curr) => {
         console.log('curr', curr)
-        return accum + Number(curr.Product.currentPrice) * Number(curr.quantity)
+        return (
+          accum +
+          Number(JSON.parse(this.state.cart[curr]).productPrice) *
+            Number(JSON.parse(this.state.cart[curr]).quantity)
+        )
       }, 0)
     }
 
@@ -35,41 +53,60 @@ class CartGuest extends Component {
           <h1>Cart:</h1>
         </div>
         <div>
-          {this.props.cart[0]
-            ? this.props.cart[0].OrderedProducts.map(el => {
+          {cartArray[0]
+            ? cartArray.map(el => {
                 return (
                   <div>
-                    <Link to={`/products/${el.Product.id}`}>
+                    <Link
+                      to={`/products/${
+                        JSON.parse(this.state.cart[el]).productId
+                      }`}
+                    >
                       <img
-                        key={`0${el.Product.id}`}
-                        src={el.Product.imageUrl}
+                        key={`0${JSON.parse(this.state.cart[el]).productId}`}
+                        src={JSON.parse(this.state.cart[el]).imageUrl}
                         width="100px"
                       />
 
-                      <div key={`A${el.Product.id}`}>
-                        Item: {el.Product.productName}
+                      <div
+                        key={`A${JSON.parse(this.state.cart[el]).productId}`}
+                      >
+                        Item: {JSON.parse(this.state.cart[el]).productName}
                       </div>
-                      <div key={`B${el.Product.id}`}>
+                      <div
+                        key={`B${JSON.parse(this.state.cart[el]).productId}`}
+                      >
                         Item Price: ${Number(
-                          el.Product.currentPrice / 100
+                          JSON.parse(this.state.cart[el]).productPrice / 100
                         ).toFixed(2)}
                       </div>
-                      <div key={`C${el.Product.id}`}>
-                        Quantity: {Number(el.quantity)}
+                      <div
+                        key={`C${JSON.parse(this.state.cart[el]).productId}`}
+                      >
+                        Quantity:{' '}
+                        {Number(JSON.parse(this.state.cart[el]).quantity)}
                       </div>
-                      <div key={`C${el.Product.id}`}>
+                      <div
+                        key={`C${JSON.parse(this.state.cart[el]).productId}`}
+                      >
                         Extended Price:{' '}
-                        {Number(el.quantity) *
-                          Number(el.Product.currentPrice / 100).toFixed(2)}
+                        {Number(JSON.parse(this.state.cart[el]).quantity) *
+                          Number(
+                            JSON.parse(this.state.cart[el]).productPrice / 100
+                          ).toFixed(2)}
                       </div>
                     </Link>
                   </div>
+
+                  // <p>Total: ${`${(total / 100).toFixed(2)}`}</p>
+                  // <Button onClick={this.checkoutClickHandler}>
+
+                  //   Checkout
+                  // </Button>
                 )
               })
             : 'Cart is empty'}
         </div>
-        <p>Total: ${`${(total / 100).toFixed(2)}`}</p>
-        <Button>Checkout</Button>
       </div>
     )
   }

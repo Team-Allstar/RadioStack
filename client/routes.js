@@ -43,7 +43,7 @@ class Routes extends Component {
         <Route path="/products/:id" component={SingleProduct} />
         <Route exact path="/" component={Home} />
         <Route exact path="/signed-up" component={SignUpSuccess} />
-        <Route exact path="/signUpForm" component={NewUserEntry} />
+        <Route exact path="/sign-up" component={NewUserEntry} />
         <Route exact path="/thank-you" component={ThankYou} />
         <Route
           path={`/order-history/${this.props.userId}`}

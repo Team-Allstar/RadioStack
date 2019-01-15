@@ -24,13 +24,46 @@ class SingleProduct extends Component {
   }
 
   addToCartClickHandler() {
-    this.props.addToCart(
-      this.props.userId,
-      this.props.singleProduct.id,
-      this.state.quantity
-    )
+    const productDetails = JSON.stringify({
+      productName: this.props.singleProduct.productName,
+      productPrice: this.props.singleProduct.currentPrice,
+      quantity: this.state.quantity,
+      productId: this.props.singleProduct.id,
+      imageUrl: this.props.singleProduct.imageUrl
+    })
 
-    window.location = `/cart/${this.props.userId}`
+    if (this.props.isLoggedIn) {
+      this.props.addToCart(
+        this.props.userId,
+        this.props.singleProduct.id,
+        this.state.quantity
+      )
+    } else {
+      if (
+        !window.localStorage.getItem(`prodId${this.props.singleProduct.id}`)
+      ) {
+        window.localStorage.setItem(
+          `prodId${this.props.singleProduct.id}`,
+          productDetails
+        )
+      } else {
+        const currentProduct = window.localStorage.getItem(
+          `prodId${this.props.singleProduct.id}`
+        )
+        const currentProductObject = JSON.parse(currentProduct)
+        currentProductObject.quantity =
+          currentProductObject.quantity + this.state.quantity
+        const updatedQuantityProduct = JSON.stringify(currentProductObject)
+
+        window.localStorage.removeItem(`prodId${this.props.singleProduct.id}`)
+        window.localStorage.setItem(
+          `prodId${this.props.singleProduct.id}`,
+          updatedQuantityProduct
+        )
+      }
+      console.log('local storage', window.localStorage)
+    }
+    window.location = `/cart/guest`
   }
 
   increaseQuantity() {
@@ -69,6 +102,7 @@ class SingleProduct extends Component {
 
 const mapStateToProps = state => {
   return {
+    isLoggedIn: !!state.user.id,
     singleProduct: state.singleProduct,
     userId: state.user.id
   }
