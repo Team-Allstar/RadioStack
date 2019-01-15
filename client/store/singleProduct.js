@@ -10,13 +10,6 @@ const gotSingleProduct = singleProduct => {
   }
 }
 
-// const addSingleProductToCart = singleProduct => {
-//   return {
-//     type: ADD_SINGLE_PRODUCT_TO_CART,
-//     singleProduct
-//   }
-// }
-
 export const fetchSingleProduct = id => {
   return async dispatch => {
     try {
@@ -29,18 +22,6 @@ export const fetchSingleProduct = id => {
     }
   }
 }
-
-// export const addToCart = (userId, productId, quantity) => {
-//   return async dispatch => {
-//     try {
-//       await axios.post(`/api/ordered-product/${userId}/${product.id}/${quantity}`)
-//       const action = addSingleProductToCart(message)
-//       dispatch(action)
-//     } catch (error) {
-//       console.error(error)
-//     }
-//   }
-// }
 
 export default (singleProduct = {}, action) => {
   switch (action.type) {

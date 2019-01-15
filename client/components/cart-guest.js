@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchCart} from '../store/cart'
 import {Link} from 'react-router-dom'
 import {Button} from 'semantic-ui-react'
+import {postUser, fetchGuestUserId} from '../store/user'
+import GuestCheckoutForm from './guest-checkout-form'
 
 class CartGuest extends Component {
   constructor() {
@@ -10,10 +11,15 @@ class CartGuest extends Component {
 
     this.state = {
       total: 0,
-      cart: {}
+      cart: {},
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: 'guest'
     }
 
     this.guestCheckoutClickHandler = this.guestCheckoutClickHandler.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   async componentDidMount() {
@@ -22,24 +28,41 @@ class CartGuest extends Component {
     this.setState({cart: cartObject})
   }
 
-  guestCheckoutClickHandler() {
-    window.localStorage.clear()
-    console.log('anything')
-    // window.location = '/sign-up'
+  handleChange = event => {
+    this.setState({
+      [event.currentTarget.name]: event.currentTarget.value
+    })
+  }
+
+  async guestCheckoutClickHandler() {
+    if (!this.state.firstName || !this.state.lastName || !this.state.email) {
+      alert(
+        'You must enter a First Name, Last Name, and Email Address to checkout as Guest.'
+      )
+    } else {
+      event.preventDefault()
+      await this.props.postNewUser(this.state)
+      await this.props.fetchGuestUserId(this.state.email)
+      const cartString = window.localStorage
+
+      this.props.postItemsToOrderedProducts(this.props.guestUserId, cartString)
+
+      this.setState({
+        firstName: '',
+        lastName: '',
+        email: ''
+      })
+    }
+    // window.localStorage.clear()
+    // window.location = '/thank-you'
   }
 
   render() {
     let total = 0
     let cartArray = Object.keys(this.state.cart)
-    // let testobject = {puppy: 'babydog'}
-
-    // console.log('TestObject', testobject)
-    console.log('STATEOBJ', this.state.cart)
-    console.log('STATEARR', cartArray)
 
     if (cartArray[0]) {
       total = cartArray.reduce((accum, curr) => {
-        console.log('curr', curr)
         return (
           accum +
           Number(JSON.parse(this.state.cart[curr]).productPrice) *
@@ -106,6 +129,13 @@ class CartGuest extends Component {
         </div>
         <p>Total: ${`${total / 100}`}</p>
         <Button onClick={this.guestCheckoutClickHandler}>Checkout</Button>
+        <div>
+          <GuestCheckoutForm
+            {...this.state}
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+          />
+        </div>
       </div>
     )
   }
@@ -113,12 +143,19 @@ class CartGuest extends Component {
 
 const mapStateToProps = state => ({
   userId: state.user.id,
-  cart: state.cart
+  cart: state.cart,
+  guestUserId: state.guestUserId
 })
 
 const mapDispatch = dispatch => ({
-  fetchCart: id => {
-    dispatch(fetchCart(id))
+  postNewUser: user => {
+    dispatch(postUser(user))
+  },
+  fetchGuestUserId: email => {
+    dispatch(fetchGuestUserId(email))
+  },
+  postItemsToOrderedProducts: (userId, localStorage) => {
+    dispatch(postItemsToOrderedProducts(userId, localStorage))
   }
 })
 
