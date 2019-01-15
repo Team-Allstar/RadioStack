@@ -21,6 +21,20 @@ router.get('/:userId', async (req, res, next) => {
   }
 })
 
+// router.get('/guest/:email', async (req, res, next) => {
+//   try {
+//     const email = req.params.email
+//     const user = await User.findOne({
+//       where: {
+//         email: email
+//       }
+//     })
+//     res.json(user)
+//   } catch (err) {
+//     next(err)
+//   }
+// })
+
 router.post('/', async (req, res, next) => {
   try {
     const newUser = await User.create({
