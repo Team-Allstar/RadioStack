@@ -70,7 +70,9 @@ form div {
 .cart,
 #order-history,
 #single-product,
-#signUpForm {
+#signUpForm,
+#thank-you,
+#api-warning {
   display: block;
   padding-top: 50px;
   padding-left: 100px;
