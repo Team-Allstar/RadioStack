@@ -68,22 +68,6 @@ export const addToCart = (userId, productId, quantity) => {
   }
 }
 
-// reducer
-//reducers
-// let initialState = {
-//   falseCart: []
-// }
-// const reducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case GOT_ORDER_HISTORY:
-//       return {...state, falseCart: [...action.falseCart]}
-//     default:
-//       return state
-//   }
-// }
-
-// export default reducer
-
 export default function(state = [], action) {
   switch (action.type) {
     case GOT_CART:

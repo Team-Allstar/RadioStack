@@ -12,7 +12,6 @@ const ADD_USER = 'ADD_USER'
 const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
 const addUser = user => ({type: ADD_USER, user})
-
 /**
  * THUNK CREATORS
  */
@@ -21,7 +20,6 @@ export const postUser = user => {
   return async dispatch => {
     const response = await axios.post('/api/users', user)
     const message = response.data
-    console.log('I AM MESSAGE', message)
     const action = addUser(message)
     dispatch(action)
   }
