@@ -25,12 +25,13 @@ router.get('/:userId', async (req, res, next) => {
   }
 })
 
-router.put('/checkout/:cartId', async (req, res, next) => {
+router.put('/:cartId', async (req, res, next) => {
   const cartId = req.params.cartId
   try {
     const currentCart = await Order.findOne({
       where: {
-        id: cartId
+        id: cartId,
+        UserId: req.user.id
       }
     })
     const checkedOutCart = await currentCart.update({

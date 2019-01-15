@@ -11,6 +11,7 @@ class Cart extends Component {
     this.state = {
       total: 0
     }
+    this.checkOutClickHandler = this.checkOutClickHandler.bind(this)
     // this.calculateCart = this.calculateCart.bind(this)
   }
 
@@ -25,7 +26,8 @@ class Cart extends Component {
   // }
 
   checkOutClickHandler() {
-    this.props.checkoutCart(this.props.cart.id)
+    this.props.checkoutCart(this.props.cart[0].id)
+    window.location = `/thank-you`
   }
 
   render() {
@@ -77,7 +79,7 @@ class Cart extends Component {
             : 'Cart is empty'}
         </div>
         <p>Total: ${`${total / 100}`}</p>
-        <Button>Checkout</Button>
+        <Button onClick={this.checkOutClickHandler}>Checkout</Button>
       </div>
     )
   }
