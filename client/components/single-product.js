@@ -38,6 +38,7 @@ class SingleProduct extends Component {
         this.props.singleProduct.id,
         this.state.quantity
       )
+      window.location = `/cart/${this.props.userId}`
     } else {
       if (
         !window.localStorage.getItem(`prodId${this.props.singleProduct.id}`)
@@ -60,10 +61,10 @@ class SingleProduct extends Component {
           `prodId${this.props.singleProduct.id}`,
           updatedQuantityProduct
         )
+        window.location = `/cart/${this.props.userId}`
       }
       console.log('local storage', window.localStorage)
     }
-    window.location = `/cart/guest`
   }
 
   increaseQuantity() {
