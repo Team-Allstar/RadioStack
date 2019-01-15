@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {Button} from 'semantic-ui-react'
-import {postUser, fetchGuestUserId} from '../store/user'
+import {postUser} from '../store/user'
+import {fetchGuestUserId, postItemsToOrderedProducts} from '../store/guest-user'
 import GuestCheckoutForm from './guest-checkout-form'
 
 class CartGuest extends Component {
@@ -24,7 +25,6 @@ class CartGuest extends Component {
 
   async componentDidMount() {
     let cartObject = window.localStorage
-
     this.setState({cart: cartObject})
   }
 
@@ -41,11 +41,7 @@ class CartGuest extends Component {
       )
     } else {
       event.preventDefault()
-      await this.props.postNewUser(this.state)
-      await this.props.fetchGuestUserId(this.state.email)
-      const cartString = window.localStorage
-
-      this.props.postItemsToOrderedProducts(this.props.guestUserId, cartString)
+      await this.props.postItemsToOrderedProducts(this.state)
 
       this.setState({
         firstName: '',
@@ -53,8 +49,8 @@ class CartGuest extends Component {
         email: ''
       })
     }
-    // window.localStorage.clear()
-    // window.location = '/thank-you'
+    window.localStorage.clear()
+    window.location = '/thank-you'
   }
 
   render() {
@@ -143,19 +139,12 @@ class CartGuest extends Component {
 
 const mapStateToProps = state => ({
   userId: state.user.id,
-  cart: state.cart,
-  guestUserId: state.guestUserId
+  cart: state.cart
 })
 
 const mapDispatch = dispatch => ({
-  postNewUser: user => {
-    dispatch(postUser(user))
-  },
-  fetchGuestUserId: email => {
-    dispatch(fetchGuestUserId(email))
-  },
-  postItemsToOrderedProducts: (userId, localStorage) => {
-    dispatch(postItemsToOrderedProducts(userId, localStorage))
+  postItemsToOrderedProducts: userData => {
+    dispatch(postItemsToOrderedProducts(userData))
   }
 })
 
