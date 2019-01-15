@@ -17,12 +17,6 @@ class Cart extends Component {
     this.setState({cart: await this.props.fetchCart(this.props.userId)})
   }
 
-  // calculateCart(aCart) {
-  //   aCart[0].OrderedProducts.reduce((accum, curr) => {
-  //     return accum + Number(curr.pricePaid)
-  //   }, 0)
-  // }
-
   render() {
     let total = 0
 
@@ -55,7 +49,9 @@ class Cart extends Component {
                         Item: {el.Product.productName}
                       </div>
                       <div key={`B${el.Product.id}`}>
-                        Item Price: ${el.Product.currentPrice / 100}
+                        Item Price: ${Number(
+                          el.Product.currentPrice / 100
+                        ).toFixed(2)}
                       </div>
                       <div key={`C${el.Product.id}`}>
                         Quantity: {Number(el.quantity)}
@@ -63,7 +59,7 @@ class Cart extends Component {
                       <div key={`C${el.Product.id}`}>
                         Extended Price:{' '}
                         {Number(el.quantity) *
-                          Number(el.Product.currentPrice / 100)}
+                          Number(el.Product.currentPrice / 100).toFixed(2)}
                       </div>
                     </Link>
                   </div>
@@ -71,7 +67,7 @@ class Cart extends Component {
               })
             : 'Cart is empty'}
         </div>
-        <p>Total: ${`${total / 100}`}</p>
+        <p>Total: ${`${(total / 100).toFixed(2)}`}</p>
         <Button>Checkout</Button>
       </div>
     )
