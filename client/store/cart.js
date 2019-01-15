@@ -1,8 +1,10 @@
 import axios from 'axios'
+import {runInNewContext} from 'vm'
 
 // action types
 const GOT_CART = 'GOT_CART'
 const ADD_TO_CART = 'ADD_TO_CART'
+const CHECKOUT_CART = 'CHECKOUT_CART'
 
 // action creators
 const gotCart = cartData => {
@@ -19,7 +21,27 @@ const addToCartAction = cartData => {
   }
 }
 
+const checkOutCart = cart => {
+  return {
+    type: CHECKOUT_CART,
+    cart
+  }
+}
+
 // thunk creators
+export const checkoutCart = id => {
+  return async dispatch => {
+    try {
+      const response = await axios.put(`/api/cart/:${id}`)
+      const message = response.data
+      const action = checkOutCart(message)
+      dispatch(action)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
 export const fetchCart = id => {
   return async dispatch => {
     try {

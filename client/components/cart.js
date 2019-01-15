@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {fetchCart} from '../store/cart'
 import {Link} from 'react-router-dom'
 import {Button} from 'semantic-ui-react'
+import {checkoutCart} from '../store/cart'
 class Cart extends Component {
   constructor() {
     super()
@@ -15,6 +16,16 @@ class Cart extends Component {
 
   async componentDidMount() {
     this.setState({cart: await this.props.fetchCart(this.props.userId)})
+  }
+
+  // calculateCart(aCart) {
+  //   aCart[0].OrderedProducts.reduce((accum, curr) => {
+  //     return accum + Number(curr.pricePaid)
+  //   }, 0)
+  // }
+
+  checkOutClickHandler() {
+    this.props.checkoutCart(this.props.cart.id)
   }
 
   render() {
@@ -49,9 +60,7 @@ class Cart extends Component {
                         Item: {el.Product.productName}
                       </div>
                       <div key={`B${el.Product.id}`}>
-                        Item Price: ${Number(
-                          el.Product.currentPrice / 100
-                        ).toFixed(2)}
+                        Item Price: ${el.Product.currentPrice / 100}
                       </div>
                       <div key={`C${el.Product.id}`}>
                         Quantity: {Number(el.quantity)}
@@ -59,7 +68,7 @@ class Cart extends Component {
                       <div key={`C${el.Product.id}`}>
                         Extended Price:{' '}
                         {Number(el.quantity) *
-                          Number(el.Product.currentPrice / 100).toFixed(2)}
+                          Number(el.Product.currentPrice / 100)}
                       </div>
                     </Link>
                   </div>
@@ -67,7 +76,7 @@ class Cart extends Component {
               })
             : 'Cart is empty'}
         </div>
-        <p>Total: ${`${(total / 100).toFixed(2)}`}</p>
+        <p>Total: ${`${total / 100}`}</p>
         <Button>Checkout</Button>
       </div>
     )
@@ -82,6 +91,9 @@ const mapStateToProps = state => ({
 const mapDispatch = dispatch => ({
   fetchCart: id => {
     dispatch(fetchCart(id))
+  },
+  checkoutCart: id => {
+    dispatch(checkoutCart(id))
   }
 })
 

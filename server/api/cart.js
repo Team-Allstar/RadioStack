@@ -24,3 +24,20 @@ router.get('/:userId', async (req, res, next) => {
     next(error)
   }
 })
+
+router.put('/checkout/:cartId', async (req, res, next) => {
+  const cartId = req.params.cartId
+  try {
+    const currentCart = await Order.findOne({
+      where: {
+        id: cartId
+      }
+    })
+    const checkedOutCart = await currentCart.update({
+      isCart: false
+    })
+    res.json(checkedOutCart)
+  } catch (error) {
+    next(error)
+  }
+})
