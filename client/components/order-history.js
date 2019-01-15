@@ -32,7 +32,9 @@ class OrderHistory extends Component {
                           <img src={el.Product.imageUrl} width="100px" />
 
                           <div key={el.id}>Item: {el.Product.productName}</div>
-                          <div key={el.id}>Price paid: {el.pricePaid}</div>
+                          <div key={el.id}>
+                            Price paid: ${(el.pricePaid / 100).toFixed(2)}
+                          </div>
                         </div>
                       )
                     })}

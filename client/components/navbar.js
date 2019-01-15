@@ -27,7 +27,7 @@ class Navbar extends Component {
         {/* <Menu.Item as={Link} name="Categories" to="/categories">
           Categories
         </Menu.Item> */}
-        <Menu.Item as={Link} name="Procuts" to="/products">
+        <Menu.Item as={Link} name="Products" to="/products">
           Products
         </Menu.Item>
         {this.props.isLoggedIn ? (
@@ -37,7 +37,7 @@ class Navbar extends Component {
             </Menu.Item>
           </div>
         ) : (
-          <Menu.Item as={Link} name="Sign In" to="/login">
+          <Menu.Item as={Link} name="Sign-In" to="/login">
             Sign In
           </Menu.Item>
         )}
@@ -45,7 +45,7 @@ class Navbar extends Component {
           <div>
             <Menu.Item
               as={Link}
-              name="Order History"
+              name="Order-History"
               to={`/order-history/${this.props.userId}`}
             >
               Order History

@@ -74,11 +74,17 @@ form div {
 
 #authform,
 #categories,
-#featured-products,
 #products,
-#single-product,
-#home {
+#single-product {
   margin-top: 85px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#featured-products,
+#home {
+  margin-top: 63px;
   display: flex;
   justify-content: center;
   align-content: center;

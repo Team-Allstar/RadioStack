@@ -14,7 +14,7 @@ class FeaturedProducts extends Component {
         <Header id="title" as="h1">
           Featured Products:
         </Header>
-        <table id="products" width="700px">
+        <table id="featured-products" width="700px">
           <tbody>
             {this.props.allFeaturedProducts
               ? this.props.allFeaturedProducts.map(el => (
