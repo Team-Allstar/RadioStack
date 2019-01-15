@@ -19,18 +19,6 @@ label {
   display: block;
 }
 
-/* nav a {
-  color: black;
-  display: flex;
-  background-color: #21e663;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-nav a:hover {
-  background-color: #8b1717;
-} */
-
 nav {
   position: absolute;
   display: flex;
@@ -60,6 +48,7 @@ form div {
 #navbar-logo {
   margin-left: 10px;
   height: 40px;
+  margin: 0px 0px 0px;
 }
 
 #footer {
@@ -75,45 +64,29 @@ form div {
 #authform,
 #categories,
 #products,
-#single-product {
-  margin-top: 85px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-
 #featured-products,
-#home {
-  margin-top: 63px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-
+#home,
 #cart,
-#order-history {
-  margin-top: 125px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
+.cart,
+#order-history,
+#single-product,
+#signUpForm {
+  display: block;
+  padding-top: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 100px;
 }
 
-#title {
-  margin: 0;
-  position: absolute;
-  top: 17%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
+.title {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 #signUpForm {
   margin: 0;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
+  padding-bottom: 100px;
+  padding-top: 100px;
 }
 
 .product-box {

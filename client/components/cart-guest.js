@@ -76,8 +76,8 @@ class CartGuest extends Component {
     }
 
     return (
-      <div id="cart">
-        <div id="title">
+      <div className="cart">
+        <div className="title">
           <h1>Cart:</h1>
         </div>
         <div>
@@ -131,7 +131,7 @@ class CartGuest extends Component {
               })
             : 'Cart is empty'}
         </div>
-        <p>Total: ${`${total / 100}`}</p>
+        <h2>Total: ${`${total / 100}`}</h2>
         <Button onClick={this.guestCheckoutClickHandler}>Checkout</Button>
         <div>
           <GuestCheckoutForm
