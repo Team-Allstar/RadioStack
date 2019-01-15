@@ -11,7 +11,7 @@ class OrderHistory extends Component {
   render() {
     return (
       <div id="order-history">
-        <div>
+        <div id="title">
           <h1>Order History:</h1>
         </div>
         {/* 

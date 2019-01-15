@@ -73,18 +73,41 @@ form div {
 }
 
 #authform,
-#cart,
-#order-history,
 #categories,
 #featured-products,
 #products,
 #single-product,
-#home,
-#signUpForm {
-  margin-top: 70px;
+#home {
+  margin-top: 85px;
   display: flex;
   justify-content: center;
   align-content: center;
+}
+
+#cart,
+#order-history {
+  margin-top: 125px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#title {
+  margin: 0;
+  position: absolute;
+  top: 17%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+#signUpForm {
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
 
 .product-box {

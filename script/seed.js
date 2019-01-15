@@ -39,7 +39,7 @@ const seed = async () => {
     zipCode: '12345',
     phoneNumber: '10293847561',
     email: 'cody2@email.com',
-    password: 'drowssap1'
+    password: '2'
     // salt: null,
     // googleId: null
   }
@@ -54,7 +54,7 @@ const seed = async () => {
     phoneNumber: '3251647582',
     email: 'cody3@email.com',
     isAdmin: false,
-    password: 'drowssap12'
+    password: '3'
     // salt: null,
     // googleId: null
   }
@@ -68,9 +68,9 @@ const seed = async () => {
     state: 'state',
     zipCode: '12345',
     phoneNumber: '65472859607',
-    email: 'cody3@email.com',
+    email: 'cody4@email.com',
     isAdmin: false,
-    password: 'drowssap12'
+    password: '4'
     // salt: null,
     // googleId: null
   }
@@ -93,75 +93,81 @@ const seed = async () => {
   }
 
   const product1 = {
-    productName: 'Dolby Dimension Wireless Bluetooth Over Ear Headphones',
-    productDescription: `Dolby Dimension gives you a smarter way to binge - one that's created just for you. Now you'll have incredible cinematic sound for all your entertainment, plus control over how much of your surroundings you hear with Dolby LifeMix. Long-lasting comfort, with the ability to easily switch from TV to phone to tablet and more, rounds out the ultimate binge-watching experience.`,
+    productName: 'Dolby Dimension Wireless Bluetooth Headphones',
+    productDescription: `Dolby LifeMix lets you control how much you hear of your surroundings, from a perfect blend of your entertainment and life around you (Transparency) to shutting out the world (Active Noise Cancellation).
+    One-Touch Switching with three Source Buttons that can easily be paired with three different. Bluetooth-enabled devices to keep you connected to your entertainment.`,
     productInventory: 100,
-    currentPrice: 13999,
+    currentPrice: 59999,
     featured: false,
-    //imageUrl:
+    imageUrl: '/images/products/DolbyDimensionHeadphones.jpeg',
     CategoryId: 3
   }
   const product2 = {
-    productName: `Audio-Technica ATH-MSR7NC`,
-    productDescription: `These headphones are outfitted with exclusive 45 millimeter True Motion Drivers to deliver distortion-free audio reproduction with extended frequency response. A miniature microphone is incorporated into the top of each earcup to pick up ambient noise that can then be blocked by an appropriate sound-cancelling signal when the active noise-cancelling function is activated. Having the microphone on the top, instead of on the side, of the housing ensures consistent noise cancellation unaffected by the user’s head movement or by wind noise. Each earcup also has an acoustic vent, ideally positioned on the side of the housing, 90 degrees from mic, to enhance tuning without negatively affecting sound quality. The result is consistent Hi-Res Audio reproduction whether in active or passive noise-cancelling modes.`,
+    productName: `Audio-Technica Headphones`,
+    productDescription:
+      'Noise-cancelling and venting technologies work together to maintain the Hi-Res Audio reproduction in both active and passive. Noise-cancelling modes 360 Degree omnidirectional noise-cancelling technology with high signal-to-noise ratio ensures consistent noise cancellation that is not affected by users head movement',
     productInventory: 70,
-    currentPrice: 29999,
+    currentPrice: 14999,
     featured: true,
-    //imageUrl:
+    imageUrl: '/images/products/Audio-Technica .jpeg',
     CategoryId: 3
   }
 
   const product3 = {
-    productName: 'Bose QuietComfort 35 (Series II)',
+    productName: 'Bose QuietComfort Headphones II',
     productDescription: `The most powerful Bose noise cancelling headphones yet.
-    Clear away the distractions of the world, and focus on what matters most. Go deeper into your music, work, and passions — with no noise in the way. Plus with Amazon Alexa, you can enjoy entertainment, get information, and manage your day. Just ask.`,
+    Go deeper into your music, work, and passions — with no noise in the way. Plus with Amazon Alexa, you can enjoy entertainment, get information, and manage your day.`,
     productInventory: 45,
     currentPrice: 34999,
     featured: false,
-    //imageUrl:
+    imageUrl: '/images/products/BoseQuietComfort.jpg',
     CategoryId: 3
   }
 
   const product4 = {
-    productName: 'DJI Mavic 2 Zoom Drone Quadcopter',
+    productName: 'DJI Mavic 2',
     productDescription:
-      'Beginner drones are often cheaper because they offer fewer bells and whistles In addition to beginner drones, there are some high-end drones that are also suitable for novice pilots, and we’ll talk about those in this guide too. We will recommend the best drones for complete novices as well as advanced beginners looking to take their skills to the next level.There aren’t a lot of drones that feature both high-quality cameras and propeller guards, but DJI manages to have multiple beginner drone offerings that are among the best on the market. So, without further delay, let’s take a look at their best beginner drones!',
+      'Up to 31 minutes flight time, 44 mph max speed, 907g takeoff weight, 3-axis gimbal for steady shots, 8GB internal storage, SD card support up to 128 GB. Functions include ActiveTrack 2.0, Omnidirectional Obstacle Sensing, Hyperlapse, Low-Noise Design, Adjustable Aperture, HDR Photos',
     productInventory: 70,
-    currentPrice: 124999,
+    currentPrice: 187999,
     featured: true,
-    //imageUrl:
+    imageUrl: '/images/products/ DJI Mavic 2.jpg',
     CategoryId: 2
   }
 
   const product5 = {
-    productName: 'Ryze Tello Quadcopter Drone with HD Camera and VR',
+    productName: 'Ryze Tello Quadcopter Drone',
     productDescription:
-      'Built in partnership with Ryze Tech, the DJI Tello Quadcopter is designed to be a cute, fun, and educational quadcopter drone. Its tiny form factor and smart Intel processor enable it to perform exciting aerial tricks on a whim, all through smartphone control. Download the free Tello app and get going, with intuitive controls for entertaining flying maneuvers. The included battery will power up to 13 minutes of flight on a full charge. At the front of the Tello is a camera capable of streaming 720p video back to your smartphone and capturing 5-megapixel photos in flight. The intelligent flight processor can coordinate camera movements for some custom shooting angles. The vision positioning system uses a downward-facing camera to ensure stable hovering when desired.',
+      'Built in partnership with Ryze Tech, the DJI Tello Quadcopter is designed to be a fun, and educational quadcopter drone controllable with a smartphone. Just download the free Tello app and get started, with intuitive controls. At the front is a camera capable of streaming 720p video back to your smartphone and capturing 5-megapixel photos in flight. The vision positioning system uses a downward-facing camera to ensure stable hovering when desired.',
     productInventory: 70,
-    currentPrice: 14999,
+    currentPrice: 9999,
     featured: false,
-    //imageUrl:
+    imageUrl: '/images/products/Ryze Tello Quadcopter Drone.jpg',
     CategoryId: 2
   }
 
   const product6 = {
-    productName: 'HP 27er 27-in IPS LED Backlit Monitor',
-    productDescription: `Our thinnest LCD display yet has a sleek design that's easy on the eyes. And the crisp, vibrant view from almost any angle comes at an ultra-affordable price.`,
-    productInventory: 70,
-    currentPrice: 17999,
+    productName: 'HP 27er LED Monitor',
+    productDescription: `HP's thinnes LCD display yet, has a sleek design that's easy on the eyes. Full HD display: Be prepared for brilliant visuals and crisp images with the unforgettable quality of this stunning Full HD display
+    .`,
+    productInventory: 80,
+    currentPrice: 18999,
     featured: true,
-    //imageUrl:
+    imageUrl: '/images/products/ HP 27er.jpeg',
     CategoryId: 1
   }
 
   const product7 = {
-    productName:
-      'Apple MacBook Pro (13" Retina, 2.3GHz Dual-Core Intel Core i5, 8GB RAM, 128GB SSD) ',
-    productDescription: 'A drone',
-    productInventory: 70,
+    productName: 'Apple MacBook Pro',
+    productDescription: `13" Retina, 2.3GHz Dual-Core Intel Core i5, 8GB RAM, 128GB SSD, 
+      Brilliant Retina display,
+      Intel Iris Plus Graphics 640,
+      Two Thunderbolt 3 (USB-C) ports,
+      Up to 10 hours of battery life`,
+    productInventory: 69,
     currentPrice: 149999,
     featured: true,
-    //imageUrl:
+    imageUrl: '/images/products/Apple MacBook Pro.jpeg',
     CategoryId: 4
   }
 
@@ -190,21 +196,21 @@ const seed = async () => {
     OrderId: 1
   }
   const orderedProducts2 = {
-    quantity: 1,
+    quantity: 12,
     pricePaid: null,
     ProductId: 2,
     UserId: 1,
     OrderId: 1
   }
   const orderedProducts3 = {
-    quantity: 1,
+    quantity: 9,
     pricePaid: null,
     ProductId: 1,
     UserId: 2,
     OrderId: 2
   }
   const orderedProducts4 = {
-    quantity: 1,
+    quantity: 12,
     pricePaid: null,
     ProductId: 1,
     UserId: 3,
