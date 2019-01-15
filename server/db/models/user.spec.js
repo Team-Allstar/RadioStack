@@ -11,38 +11,21 @@
 
 //   describe('instanceMethods', () => {
 //     describe('correctPassword', () => {
-//       let preet
-//       let josh
+//       let cody
 
 //       beforeEach(async () => {
-//         preet = await User.create({
+//         cody = await User.create({
 //           email: 'cody@puppybook.com',
-//           password: 'bones',
-//           isAdmin: false,
-//           streetAddress1: '123 Maint Stree',
-//           streetAddress2: 'Apt 2',
-//           phoneNumber: '516.798.8612',
-//           firstName: 'preet',
-//           lastName: 'gudimella'
+//           password: 'bones'
 //         })
-//         // (josh = await User.create({
-//         //   email: '',
-//         //   password: '',
-//         //   isAdmin: true,
-//         //   streetAddress1: '',
-//         //   streetAddress2: '',
-//         //   phoneNumber: '516-798-8612',
-//         //   firstName: '',
-//         //   lastName: ''
-//         // }))
 //       })
 
 //       it('returns true if the password is correct', () => {
-//         expect(preet.correctPassword('bones')).to.be.equal(true)
+//         expect(cody.correctPassword('bones')).to.be.equal(true)
 //       })
 
 //       it('returns false if the password is incorrect', () => {
-//         expect(preet.correctPassword('bonez')).to.be.equal(false)
+//         expect(cody.correctPassword('bonez')).to.be.equal(false)
 //       })
 //     }) // end describe('correctPassword')
 //   }) // end describe('instanceMethods')
