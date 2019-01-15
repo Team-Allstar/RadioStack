@@ -11,9 +11,9 @@ class FeaturedProducts extends Component {
   render() {
     return (
       <div>
-        <Header id="title" as="h1">
-          Featured Products:
-        </Header>
+        <div className="title">
+          <h1>Featured Products:</h1>
+        </div>
         <table id="featured-products" width="700px">
           <tbody>
             {this.props.allFeaturedProducts

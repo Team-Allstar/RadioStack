@@ -14,6 +14,7 @@ class Navbar extends Component {
     return (
       <Menu>
         <Image
+          id="navbar-logo"
           as={Link}
           to="/"
           size="small"
@@ -53,12 +54,12 @@ class Navbar extends Component {
               name="Cart-Logged-In"
               to={`/cart/${this.props.userId}`}
             >
-              User Cart
+              Cart
             </Menu.Item>
           </div>
         ) : (
           <Menu.Item as={Link} name="Cart-Guest" to="/cart/guest">
-            Guest Cart
+            Cart
           </Menu.Item>
         )}
       </Menu>
