@@ -29,6 +29,8 @@ class SingleProduct extends Component {
       this.props.singleProduct.id,
       this.state.quantity
     )
+
+    window.location = `/cart/${this.props.userId}`
   }
 
   increaseQuantity() {
