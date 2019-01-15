@@ -6,10 +6,6 @@ import {logout, me} from '../store'
 import {Menu, Image} from 'semantic-ui-react'
 // import {Categories} from '.'
 class Navbar extends Component {
-  // constructor() {
-  //   super()
-  // }
-
   async componentDidMount() {
     await this.props.me()
   }
@@ -23,10 +19,6 @@ class Navbar extends Component {
           size="small"
           src="/images/logos/RadioStack.png"
         />
-
-        {/* <Menu.Item as={Link} name="Categories" to="/categories">
-          Categories
-        </Menu.Item> */}
         <Menu.Item as={Link} name="Procuts" to="/products">
           Products
         </Menu.Item>
@@ -37,7 +29,7 @@ class Navbar extends Component {
             </Menu.Item>
           </div>
         ) : (
-          <Menu.Item as={Link} name="Sign In" to="/login">
+          <Menu.Item as={Link} name="Sign-In" to="/login">
             Sign In
           </Menu.Item>
         )}
@@ -45,7 +37,7 @@ class Navbar extends Component {
           <div>
             <Menu.Item
               as={Link}
-              name="Order History"
+              name="Order-History"
               to={`/order-history/${this.props.userId}`}
             >
               Order History
@@ -104,7 +96,3 @@ Navbar.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired
 }
-
-// <div id="navbar">
-
-// </div>

@@ -10,9 +10,11 @@ class FeaturedProducts extends Component {
 
   render() {
     return (
-      <div id="products">
-        <Header as="h1">Featured Products:</Header>
-        <table width="700px">
+      <div>
+        <Header id="title" as="h1">
+          Featured Products:
+        </Header>
+        <table id="featured-products" width="700px">
           <tbody>
             {this.props.allFeaturedProducts
               ? this.props.allFeaturedProducts.map(el => (

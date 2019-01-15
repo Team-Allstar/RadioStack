@@ -7,7 +7,7 @@ const GuestCheckoutForm = props => {
   return (
     <div id="signUpForm">
       <form onSubmit={props.handleSubmit}>
-        <h1>PLEASE FILL IN YOUR INFORMATION</h1>
+        <h3>PLEASE ENTER YOUR INFORMATION TO CHECKOUT AS GUEST</h3>
         <label>
           First Name* :
           <input
@@ -35,7 +35,7 @@ const GuestCheckoutForm = props => {
             value={props.email}
           />
         </label>
-        <button type="submit">SUBMIT</button>
+        {/* <button type="submit">SUBMIT</button> */}
       </form>
       <p>*required</p>
     </div>
