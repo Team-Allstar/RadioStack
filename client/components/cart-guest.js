@@ -35,7 +35,15 @@ class CartGuest extends Component {
   }
 
   async guestCheckoutClickHandler() {
-    if (!this.state.firstName || !this.state.lastName || !this.state.email) {
+    if (!Object.keys(this.state.cart)[0]) {
+      alert(
+        'Your cart is empty. You cannot checkout until you select products to purchase.'
+      )
+    } else if (
+      !this.state.firstName ||
+      !this.state.lastName ||
+      !this.state.email
+    ) {
       alert(
         'You must enter a First Name, Last Name, and Email Address to checkout as Guest.'
       )
@@ -48,9 +56,9 @@ class CartGuest extends Component {
         lastName: '',
         email: ''
       })
+      window.localStorage.clear()
+      window.location = '/thank-you'
     }
-    window.localStorage.clear()
-    window.location = '/thank-you'
   }
 
   render() {
