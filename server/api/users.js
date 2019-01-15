@@ -5,7 +5,7 @@ module.exports = router
 router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll()
-    res.json(users)
+    res.json('You are not an admin')
   } catch (err) {
     next(err)
   }
@@ -14,8 +14,13 @@ router.get('/', async (req, res, next) => {
 router.get('/:userId', async (req, res, next) => {
   try {
     const userId = req.params.userId
-    const users = await User.findById(userId)
-    res.json(users)
+    const user = await User.findById(userId)
+
+    if (req.user.dataValues.id === Number(req.params.userId)) {
+      res.json(user)
+    } else {
+      res.status(403).send('You are not authorized')
+    }
   } catch (err) {
     next(err)
   }
