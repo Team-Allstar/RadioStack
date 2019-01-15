@@ -9,7 +9,8 @@ class Cart extends Component {
     super()
 
     this.state = {
-      total: 0
+      total: 0,
+      cart: {}
     }
     this.checkOutClickHandler = this.checkOutClickHandler.bind(this)
     // this.calculateCart = this.calculateCart.bind(this)
@@ -33,7 +34,7 @@ class Cart extends Component {
   render() {
     let total = 0
 
-    if (this.props.cart[0]) {
+    if (this.props.cart[0] && this.props.cart[0].OrderedProducts) {
       console.log('LOG CART', this.props.cart[0])
       total = this.props.cart[0].OrderedProducts.reduce((accum, curr) => {
         console.log('curr', curr)
@@ -47,7 +48,7 @@ class Cart extends Component {
           <h1>Cart:</h1>
         </div>
         <div>
-          {this.props.cart[0]
+          {this.props.cart[0] && this.props.cart[0].OrderedProducts
             ? this.props.cart[0].OrderedProducts.map(el => {
                 return (
                   <div>
@@ -73,13 +74,15 @@ class Cart extends Component {
                           Number(el.Product.currentPrice / 100)}
                       </div>
                     </Link>
+                    <Button onClick={this.checkOutClickHandler}>
+                      Checkout
+                    </Button>
                   </div>
                 )
               })
             : 'Cart is empty'}
         </div>
         <p>Total: ${`${total / 100}`}</p>
-        <Button onClick={this.checkOutClickHandler}>Checkout</Button>
       </div>
     )
   }
