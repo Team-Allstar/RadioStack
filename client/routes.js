@@ -4,7 +4,7 @@ import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {
   Login,
-  Signup,
+  NewUserEntry,
   Cart,
   OrderHistory,
   Categories,
@@ -12,7 +12,6 @@ import {
   Products,
   SingleProduct,
   Home,
-  NewUserEntry,
   SignUpSuccess,
   ThankYou,
   CartGuest
@@ -34,7 +33,7 @@ class Routes extends Component {
       <Switch>
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
+        <Route path="/signup" component={NewUserEntry} />
         <Route exact path="/cart/guest" component={CartGuest} />
         <Route path={`/cart/${this.props.userId}`} component={Cart} />
         <Route path="/categories" component={Categories} />
@@ -43,7 +42,7 @@ class Routes extends Component {
         <Route path="/products/:id" component={SingleProduct} />
         <Route exact path="/" component={Home} />
         <Route exact path="/signed-up" component={SignUpSuccess} />
-        <Route exact path="/signUpForm" component={NewUserEntry} />
+        <Route exact path="/sign-up" component={NewUserEntry} />
         <Route exact path="/thank-you" component={ThankYou} />
         <Route
           path={`/order-history/${this.props.userId}`}

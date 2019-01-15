@@ -5,9 +5,9 @@ import {FeaturedProducts, Categories} from './'
 
 const Home = () => (
   <div id="home">
-    <div>
+    {/* <div>
       <Categories />
-    </div>
+    </div> */}
     <div>
       <FeaturedProducts />
     </div>
