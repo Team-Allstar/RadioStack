@@ -36,7 +36,7 @@ const AuthForm = props => {
         <i className="google plus icon" />
         {displayName} with Google
       </Button>
-      <Button as={Link} to="/signUpForm" type="button">
+      <Button as={Link} to="/signup" type="button">
         Sign Up!
       </Button>
 

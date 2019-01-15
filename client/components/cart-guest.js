@@ -13,7 +13,7 @@ class CartGuest extends Component {
       cart: {}
     }
 
-    this.checkoutClickHandler = this.checkoutClickHandler.bind(this)
+    this.guestCheckoutClickHandler = this.guestCheckoutClickHandler.bind(this)
   }
 
   async componentDidMount() {
@@ -22,9 +22,10 @@ class CartGuest extends Component {
     this.setState({cart: cartObject})
   }
 
-  checkoutClickHandler() {
-    // window.location = '/sign-up'
+  guestCheckoutClickHandler() {
     window.localStorage.clear()
+    console.log('anything')
+    // window.location = '/sign-up'
   }
 
   render() {
@@ -89,11 +90,13 @@ class CartGuest extends Component {
                       <div
                         key={`C${JSON.parse(this.state.cart[el]).productId}`}
                       >
-                        Extended Price:{' '}
-                        {Number(JSON.parse(this.state.cart[el]).quantity) *
+                        Extended Price: ${' '}
+                        {(
+                          Number(JSON.parse(this.state.cart[el]).quantity) *
                           Number(
                             JSON.parse(this.state.cart[el]).productPrice / 100
-                          ).toFixed(2)}
+                          )
+                        ).toFixed(2)}
                       </div>
                     </Link>
                   </div>
@@ -102,7 +105,7 @@ class CartGuest extends Component {
             : 'Cart is empty'}
         </div>
         <p>Total: ${`${total / 100}`}</p>
-        <Button onClick={this.checkOutClickHandler}>Checkout</Button>
+        <Button onClick={this.guestCheckoutClickHandler}>Checkout</Button>
       </div>
     )
   }

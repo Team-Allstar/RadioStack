@@ -1,6 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-
 // Might need HtmlFor in the label ex. htmlFor="firstName"
 
 const SignUpForm = props => {
