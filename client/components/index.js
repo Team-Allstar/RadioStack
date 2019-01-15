@@ -17,5 +17,8 @@ export {default as UserHome} from './user-home'
 export {default as NewUserEntry} from './new-user-entry'
 export {default as SignUpSuccess} from './sign-up-success'
 export {default as ThankYou} from './thank-you'
+export {default as SignUpForm} from './sign-up-form'
+export {default as CheckoutForm} from './checkout-form'
+export {default as Stripe} from './stripe'
 
 export {Login, Signup} from './auth-form'
