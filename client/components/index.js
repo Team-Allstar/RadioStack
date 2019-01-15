@@ -15,5 +15,6 @@ export {default as SingleProduct} from './single-product'
 export {default as UserHome} from './user-home'
 export {default as NewUserEntry} from './createUser'
 export {default as SignUpSuccess} from './sign-up-success'
+export {default as ThankYou} from './thank-you'
 
 export {Login, Signup} from './auth-form'
