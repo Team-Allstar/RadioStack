@@ -13,7 +13,9 @@ import {
   SingleProduct,
   Home,
   NewUserEntry,
-  SignUpSuccess
+  SignUpSuccess,
+  ThankYou,
+  CartGuest
 } from './components'
 import {me} from './store'
 
@@ -33,6 +35,7 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route exact path="/cart/guest" component={CartGuest} />
         <Route path={`/cart/${this.props.userId}`} component={Cart} />
         <Route path="/categories" component={Categories} />
         <Route exact path="/products/featured" component={FeaturedProducts} />
@@ -41,6 +44,7 @@ class Routes extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/signed-up" component={SignUpSuccess} />
         <Route exact path="/signUpForm" component={NewUserEntry} />
+        <Route exact path="/thank-you" component={ThankYou} />
         <Route
           path={`/order-history/${this.props.userId}`}
           component={OrderHistory}
