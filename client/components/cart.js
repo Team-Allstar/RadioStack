@@ -74,15 +74,13 @@ class Cart extends Component {
                           Number(el.Product.currentPrice / 100)}
                       </div>
                     </Link>
-                    <Button onClick={this.checkOutClickHandler}>
-                      Checkout
-                    </Button>
                   </div>
                 )
               })
             : 'Cart is empty'}
         </div>
         <p>Total: ${`${total / 100}`}</p>
+        <Button onClick={this.checkOutClickHandler}>Checkout</Button>
       </div>
     )
   }
