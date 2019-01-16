@@ -11,38 +11,60 @@ const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
-    <div id="authform">
+    <div className="ui placeholder segment">
       <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
-        </div>
+        <div className="ui two column very relaxed stackable grid">
+          <div className="column">
+            <div className="ui form">
+              <div className="field">
+                <label htmlFor="email">Email</label>
+                <div className="ui left icon input">
+                  <input type="text" placeholder="Email" name="email" />
+                  <i className="user icon" />
+                </div>
+              </div>
 
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
+              <div className="field">
+                <label>Password</label>
+                <div className="ui left icon input">
+                  <input name="password" type="password" />
+                  <i className="lock icon" />
+                </div>
+              </div>
 
-        <div>
-          <button type="submit">{displayName}</button>
+              <div>
+                <button className="positive ui button" type="submit">
+                  {displayName}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="middle aligned column">
+            {/* <div class="ui big button">
+              <i class="signup icon" />
+              Sign Up
+            </div> */}
+            <div className="column">
+              <div className="ui form">
+                <div className="field">
+                  <Button href="/auth/google" className="ui google plus button">
+                    <i className="google plus icon" />
+                    {displayName} with Google
+                  </Button>
+                </div>
+                <div className="field">
+                  <Button as={Link} to="/signup" type="button">
+                    Sign Up!
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {error && error.response && <div> {error.response.data} </div>}
         </div>
-        {error && error.response && <div> {error.response.data} </div>}
+        <div className="ui vertical divider">Or</div>
       </form>
-      <Button href="/auth/google" className="ui google plus button">
-        <i className="google plus icon" />
-        {displayName} with Google
-      </Button>
-      <Button as={Link} to="/signup" type="button">
-        Sign Up!
-      </Button>
-
-      {/* <form method="get" action="/auth/google">
-        <button type="submit">Login in With Google</button>
-      </form> */}
     </div>
   )
 }
@@ -96,3 +118,37 @@ AuthForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   error: PropTypes.object
 }
+
+// {/* <div id="authform">
+//   <form onSubmit={handleSubmit} name={name}>
+//     <div>
+//       <label htmlFor="email">
+//         <small>Email</small>
+//       </label>
+//       <input name="email" type="text" />
+//     </div>
+
+//     <div>
+//       <label htmlFor="password">
+//         <small>Password</small>
+//       </label>
+//       <input name="password" type="password" />
+//     </div>
+
+//     <div>
+//       <button type="submit">{displayName}</button>
+//     </div>
+//     {error && error.response && <div> {error.response.data} </div>}
+//   </form>
+//   <Button href="/auth/google" className="ui google plus button">
+//     <i className="google plus icon" />
+//     {displayName} with Google
+//   </Button>
+//   <Button as={Link} to="/signup" type="button">
+//     Sign Up!
+//   </Button>
+
+//   {/* <form method="get" action="/auth/google">
+//     <button type="submit">Login in With Google</button>
+//   </form>
+// </div> */}
