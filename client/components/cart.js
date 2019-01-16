@@ -72,7 +72,7 @@ class Cart extends Component {
                       <div key={`C${el.Product.id}`}>
                         Quantity: {Number(el.quantity)}
                       </div>
-                      <div key={`C${el.Product.id}`}>
+                      <div key={`D${el.Product.id}`}>
                         Extended Price: ${' '}
                         {Number(el.quantity) *
                           Number(el.Product.currentPrice / 100)}

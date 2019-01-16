@@ -99,12 +99,29 @@ const mapDispatch = (dispatch, ownProps) => {
       const formName = evt.target.name
       const email = evt.target.email.value
       const password = evt.target.password.value
-      dispatch(auth(email, password, formName)).then(() => {
-        ownProps.history.push('/')
-      })
+      const check = auth(email, password, formName)
+      if (check) {
+        dispatch(check)
+      } else {
+        alert('Please fill in Email and Password field.')
+      }
     }
   }
 }
+
+// const LoginClickHandler = () => {
+//   if (this.state.cart === 0) {
+//     alert('Please fill in Email and Password field.')
+//     return
+//   }
+
+//   if (this.props.cart[0] && this.props.cart[0].OrderedProducts) {
+//     this.props.checkoutCart(this.props.cart[0].id)
+//     window.location = `/thank-you`
+//   } else {
+//     alert('Incorrect Email or Password.')
+//   }
+// }
 
 export const Login = connect(mapLogin, mapDispatch)(AuthForm)
 export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
@@ -118,37 +135,3 @@ AuthForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   error: PropTypes.object
 }
-
-// {/* <div id="authform">
-//   <form onSubmit={handleSubmit} name={name}>
-//     <div>
-//       <label htmlFor="email">
-//         <small>Email</small>
-//       </label>
-//       <input name="email" type="text" />
-//     </div>
-
-//     <div>
-//       <label htmlFor="password">
-//         <small>Password</small>
-//       </label>
-//       <input name="password" type="password" />
-//     </div>
-
-//     <div>
-//       <button type="submit">{displayName}</button>
-//     </div>
-//     {error && error.response && <div> {error.response.data} </div>}
-//   </form>
-//   <Button href="/auth/google" className="ui google plus button">
-//     <i className="google plus icon" />
-//     {displayName} with Google
-//   </Button>
-//   <Button as={Link} to="/signup" type="button">
-//     Sign Up!
-//   </Button>
-
-//   {/* <form method="get" action="/auth/google">
-//     <button type="submit">Login in With Google</button>
-//   </form>
-// </div> */}
