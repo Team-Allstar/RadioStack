@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {fetchCart} from '../store/cart'
 import {Link} from 'react-router-dom'
 import {Button} from 'semantic-ui-react'
-import {checkoutCart} from '../store/cart'
+import {checkoutCart, removeItem} from '../store/cart'
 class Cart extends Component {
   constructor() {
     super()
@@ -12,6 +12,7 @@ class Cart extends Component {
       cart: 0
     }
     this.checkOutClickHandler = this.checkOutClickHandler.bind(this)
+    this.deleteItem = this.deleteItem.bind(this)
     // this.calculateCart = this.calculateCart.bind(this)
   }
 
@@ -19,8 +20,14 @@ class Cart extends Component {
     this.setState({cart: await this.props.fetchCart(this.props.userId)})
   }
 
+  async deleteItem(id) {
+    console.log('works')
+    await this.props.removeItem(id)
+    this.setState({cart: await this.props.fetchCart(this.props.userId)})
+  }
+
   checkOutClickHandler() {
-    if (this.state.cart === 0) {
+    if (!this.props.cart[0].OrderedProducts) {
       alert(
         'Your cart is empty. You cannot checkout until you select products to purchase.'
       )
@@ -72,12 +79,22 @@ class Cart extends Component {
                       <div key={`C${el.Product.id}`}>
                         Quantity: {Number(el.quantity)}
                       </div>
-                      <div key={`C${el.Product.id}`}>
+                      <div key={`D${el.Product.id}`}>
                         Extended Price: ${' '}
                         {Number(el.quantity) *
                           Number(el.Product.currentPrice / 100)}
                       </div>
                     </Link>
+                    <div key={el.Product.id}>
+                      <img
+                        onClick={() => {
+                          this.deleteItem(el.Product.id)
+                        }}
+                        className="delete-item"
+                        src="/images/icons/delete-item.png"
+                        width="20px"
+                      />
+                    </div>
                   </div>
                 )
               })
@@ -101,6 +118,9 @@ const mapDispatch = dispatch => ({
   },
   checkoutCart: id => {
     dispatch(checkoutCart(id))
+  },
+  removeItem: id => {
+    dispatch(removeItem(id))
   }
 })
 

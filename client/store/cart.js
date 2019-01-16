@@ -54,6 +54,19 @@ export const fetchCart = id => {
   }
 }
 
+export const removeItem = id => {
+  return async dispatch => {
+    try {
+      // const response =
+      await axios.delete(`/api/cart/remove/${id}`)
+      // const data = response.data
+      // dispatch(gotCart(data))
+    } catch (err) {
+      console.error(err)
+    }
+  }
+}
+
 export const addToCart = (userId, productId, quantity) => {
   return async dispatch => {
     try {

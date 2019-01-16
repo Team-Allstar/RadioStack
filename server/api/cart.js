@@ -96,3 +96,29 @@ router.post('/checkout/guest/', async (req, res, next) => {
     next(error)
   }
 })
+
+router.delete('/remove/:id', async (req, res, next) => {
+  try {
+    const productToRemoveId = req.params.id
+
+    const currentCart = await Order.findOne({
+      where: {
+        isCart: true,
+        UserId: req.user.id
+      }
+    })
+
+    const cartId = currentCart.id
+
+    await OrderedProduct.destroy({
+      where: {
+        ProductId: productToRemoveId,
+        UserId: req.user.id,
+        OrderId: cartId
+      }
+    })
+    res.status(200).end()
+  } catch (error) {
+    next(error)
+  }
+})
