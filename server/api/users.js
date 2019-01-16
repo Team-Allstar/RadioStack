@@ -16,7 +16,7 @@ router.get('/:userId', async (req, res, next) => {
     const userId = req.params.userId
     const user = await User.findById(userId)
 
-    if (req.user.dataValues.id === Number(req.params.userId)) {
+    if (req.user && req.user.dataValues.id === Number(req.params.userId)) {
       res.json(user)
     } else {
       res.status(403).send('You are not authorized')

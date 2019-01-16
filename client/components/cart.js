@@ -9,8 +9,7 @@ class Cart extends Component {
     super()
 
     this.state = {
-      total: 0,
-      cart: {}
+      cart: 0
     }
     this.checkOutClickHandler = this.checkOutClickHandler.bind(this)
     // this.calculateCart = this.calculateCart.bind(this)
@@ -21,6 +20,13 @@ class Cart extends Component {
   }
 
   checkOutClickHandler() {
+    if (this.state.cart === 0) {
+      alert(
+        'Your cart is empty. You cannot checkout until you select products to purchase.'
+      )
+      return
+    }
+
     if (this.props.cart[0] && this.props.cart[0].OrderedProducts) {
       this.props.checkoutCart(this.props.cart[0].id)
       window.location = `/thank-you`
@@ -35,9 +41,7 @@ class Cart extends Component {
     let total = 0
 
     if (this.props.cart[0] && this.props.cart[0].OrderedProducts) {
-      console.log('LOG CART', this.props.cart[0])
       total = this.props.cart[0].OrderedProducts.reduce((accum, curr) => {
-        console.log('curr', curr)
         return accum + Number(curr.Product.currentPrice) * Number(curr.quantity)
       }, 0)
     }
