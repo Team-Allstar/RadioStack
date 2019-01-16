@@ -75,8 +75,7 @@ class Cart extends Component {
                       <div key={`C${el.Product.id}`}>
                         Quantity: {Number(el.quantity)}
                       </div>
-
-                      <div key={`C${el.Product.id}`}>
+                      <div key={`D${el.Product.id}`}>
                         Extended Price: ${' '}
                         {Number(el.quantity) *
                           Number(el.Product.currentPrice / 100)}
@@ -88,8 +87,8 @@ class Cart extends Component {
             : 'Cart is empty'}
         </div>
         <h2>Total: ${`${(total / 100).toFixed(2)}`}</h2>
-        <Button onClick={this.checkOutClickHandler}>Checkout</Button>
         <Stripe />
+        <Button onClick={this.checkOutClickHandler}>Checkout</Button>
       </div>
     )
   }
