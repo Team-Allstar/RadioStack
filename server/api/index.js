@@ -1,5 +1,10 @@
+const path = require('path')
 const router = require('express').Router()
 module.exports = router
+
+router.get('/', (req, res, next) => {
+  res.sendFile(path.join(__dirname, '../..', 'public/index.html'))
+})
 
 router.use('/users', require('./users'))
 router.use('/homepage', require('./homepage'))

@@ -21,5 +21,6 @@ export {default as ThankYou} from './thank-you'
 export {default as SignUpForm} from './sign-up-form'
 export {default as CheckoutForm} from './checkout-form'
 export {default as Stripe} from './stripe'
+export {default as APIWarning} from './api-warning'
 
 export {Login, Signup} from './auth-form'

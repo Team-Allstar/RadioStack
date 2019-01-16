@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {withRouter, Route, Switch} from 'react-router-dom'
+import {withRouter, Route, Redirect, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {
   Login,
@@ -14,7 +14,8 @@ import {
   Home,
   SignUpSuccess,
   ThankYou,
-  CartGuest
+  CartGuest,
+  APIWarning
 } from './components'
 import {me} from './store'
 
@@ -32,6 +33,8 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
+        {/* <Redirect path="/api" to="/api-warning" /> */}
+        <Route path="/api" component={APIWarning} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={NewUserEntry} />
         <Route exact path="/cart/guest" component={CartGuest} />
