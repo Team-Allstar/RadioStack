@@ -27,7 +27,7 @@ class Cart extends Component {
   }
 
   checkOutClickHandler() {
-    if (!this.props.cart[0].OrderedProducts) {
+    if (!(this.props.cart[0] && this.props.cart[0].OrderedProducts)) {
       alert(
         'Your cart is empty. You cannot checkout until you select products to purchase.'
       )
