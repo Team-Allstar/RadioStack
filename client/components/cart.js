@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchCart} from '../store/cart'
 import {Link} from 'react-router-dom'
 import {Button} from 'semantic-ui-react'
-import {checkoutCart, removeItem} from '../store/cart'
+import {checkoutCart, removeItem, fetchCart} from '../store/cart'
 import Stripe from './stripe'
 class Cart extends Component {
   constructor() {
