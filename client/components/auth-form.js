@@ -109,6 +109,8 @@ const mapDispatch = (dispatch, ownProps) => {
   }
 }
 
+// .then(() => {
+//   ownProps.history.push('/')
 // const LoginClickHandler = () => {
 //   if (this.state.cart === 0) {
 //     alert('Please fill in Email and Password field.')
