@@ -56,7 +56,7 @@ class OrderHistory extends Component {
                         </div>
                       )
                     })}
-                    <h3>Order Total: ${`${total / 100}`}</h3>
+                    <h3>Order Total: ${`${(total / 100).toFixed(2)}`}</h3>
                   </div>
                 )
               })
