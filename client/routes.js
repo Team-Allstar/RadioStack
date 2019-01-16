@@ -34,6 +34,7 @@ class Routes extends Component {
       <Switch>
         {/* Routes placed here are available to all visitors */}
         {/* <Redirect path="/api" to="/api-warning" /> */}
+        <Redirect path="/home" to="/" />
         <Route path="/api" component={APIWarning} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={NewUserEntry} />

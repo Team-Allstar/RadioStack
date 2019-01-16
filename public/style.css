@@ -30,10 +30,10 @@ nav {
   margin: 0px 10px;
 }
 
-form div {
+/* form div {
   margin: 1em;
   display: inline-block;
-}
+} */
 
 #navbar {
   display: flex;
@@ -61,7 +61,7 @@ form div {
   justify-content: center;
 }
 
-#authform,
+/* #authform, */
 #categories,
 #products,
 #featured-products,
