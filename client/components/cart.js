@@ -83,7 +83,7 @@ class Cart extends Component {
               })
             : 'Cart is empty'}
         </div>
-        <h2>Total: ${`${total / 100}`}</h2>
+        <h2>Total: ${`${(total / 100).toFixed(2)}`}</h2>
         <Button onClick={this.checkOutClickHandler}>Checkout</Button>
       </div>
     )
