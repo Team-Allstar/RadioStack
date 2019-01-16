@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Redirect} from 'react-router-dom'
 import {postUser} from '../store/user'
-import SignUpForm from './signUpForm'
+import SignUpForm from './sign-up-form'
 
 class NewUserEntry extends Component {
   constructor(props) {
