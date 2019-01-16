@@ -4,6 +4,7 @@ import {fetchCart} from '../store/cart'
 import {Link} from 'react-router-dom'
 import {Button} from 'semantic-ui-react'
 import {checkoutCart} from '../store/cart'
+import Stripe from './stripe'
 class Cart extends Component {
   constructor() {
     super()
@@ -51,6 +52,7 @@ class Cart extends Component {
         <div className="title">
           <h1>Cart:</h1>
         </div>
+
         <div>
           {this.props.cart[0] && this.props.cart[0].OrderedProducts
             ? this.props.cart[0].OrderedProducts.map(el => {
@@ -62,16 +64,18 @@ class Cart extends Component {
                         src={el.Product.imageUrl}
                         width="100px"
                       />
-
                       <div key={`A${el.Product.id}`}>
                         Item: {el.Product.productName}
                       </div>
+
                       <div key={`B${el.Product.id}`}>
                         Item Price: ${el.Product.currentPrice / 100}
                       </div>
+
                       <div key={`C${el.Product.id}`}>
                         Quantity: {Number(el.quantity)}
                       </div>
+
                       <div key={`C${el.Product.id}`}>
                         Extended Price: ${' '}
                         {Number(el.quantity) *
@@ -85,6 +89,7 @@ class Cart extends Component {
         </div>
         <h2>Total: ${`${(total / 100).toFixed(2)}`}</h2>
         <Button onClick={this.checkOutClickHandler}>Checkout</Button>
+        <Stripe />
       </div>
     )
   }
